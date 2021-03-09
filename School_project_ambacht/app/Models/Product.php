@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    public function market()
+    {
+        return $this->belongsToMany(Market::class);
+    }
+
 }
+
