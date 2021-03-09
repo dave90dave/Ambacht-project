@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->unsignedInteger('category_id');
             $table->string('name');
-            $table->decimal('price');
-            $table->string('per_unit');
-            $table->integer('amount');
+            $table->decimal('price'); //3 euro
+            $table->string('per_unit'); // KG/g/stuks
+            $table->integer('amount'); // aantal van het product
             $table->string('photo');
             $table->boolean('active');
             $table->string('description');
