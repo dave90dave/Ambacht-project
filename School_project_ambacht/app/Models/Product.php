@@ -2,17 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'name',
+        'price',
+        'per_unit',
+        'amount',
+        'photo',
+        'active',
+        'description',
+    ];
 
-    public function market()
-    {
+    public function market(){
         return $this->belongsToMany(Market::class);
     }
-
 }
 
