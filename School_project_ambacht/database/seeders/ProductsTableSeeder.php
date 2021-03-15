@@ -16,13 +16,13 @@ class ProductsTableSeeder extends Seeder
     {
         DB::table('products')->insert([
             'category_id' => '1',
-            'name' => 'LEGO Technic Cyber Drone',
-            'price' => '10',
+            'name' => 'Bananen',
+            'price' => '2',
             'per_unit' => '1',
-            'amount' => '4',
+            'amount' => '2',
             'photo' => 'https://www.versgalerij.be/images/right/groenten-en-fruit-kopen-kalmthout.jpg',
             'active' => '1',
-            'description' => 'Ruimteavonturen in een Cyberdrone met herbouwbaar 3-in-1 speelgoed',
+            'description' => 'Een tros bananen met een zachte en zoete smaak. Lekker om zo te eten als gezond tussendoortje.',
             'created_at' => now()
             //'updated_at' => now()
         ]);
