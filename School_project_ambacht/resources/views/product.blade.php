@@ -14,6 +14,7 @@
         <th>Description</th>
         <th>Created at</th>
         <th>Updated at</th>
+        <th>Belongs to X markets</th>
     </tr>
 
 @foreach ($products as $product)
