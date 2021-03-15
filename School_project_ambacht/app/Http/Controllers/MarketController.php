@@ -10,7 +10,7 @@ class MarketController extends Controller
     public function index()
     {
         $markets = Market::all();
-
-        return $markets;
+        //dd($markets);
+        return view('market', compact('markets'));
     }
 }
