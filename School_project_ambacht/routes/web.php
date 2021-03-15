@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,5 @@ Route::get('/product', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])->name('markets');
+Route::get('/products', [App\Http\Controllers\MarketController::class, 'index'])->name('products');
