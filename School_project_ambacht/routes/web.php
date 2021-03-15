@@ -31,3 +31,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])->name('markets');
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
