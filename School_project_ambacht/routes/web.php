@@ -32,3 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])->name('markets');
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
+
+
+Route::get('/management/products', [App\Http\Controllers\ManagementController::class, 'products'])->name('productManagement');
+Route::get('/management/markets', [App\Http\Controllers\ManagementController::class, 'markets'])->name('marketsManagement');
