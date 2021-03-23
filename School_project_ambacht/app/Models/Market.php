@@ -9,9 +9,19 @@ class Market extends Model
 {
     use HasFactory;
 
-    public function products()
-    {
-        return $this->hasMany(Product::class);
+    protected $fillable = [
+        'label',
+        'location',
+        'photo',
+        'description',
+    ];
+
+    public function products(){
+        return $this->HasMany(Product::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }
