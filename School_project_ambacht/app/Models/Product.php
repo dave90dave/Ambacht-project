@@ -19,5 +19,9 @@ class Product extends Model
     public function market(){
         return $this->belongsToMany(Market::class);
     }
+
+    public function category(){
+        return $this->hasMany(Category::class);
+    }
 }
 
