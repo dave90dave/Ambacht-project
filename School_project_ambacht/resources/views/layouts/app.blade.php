@@ -19,8 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- bootstrap JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -64,7 +65,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -90,5 +91,49 @@
             @yield('content')
         </main>
     </div>
+
 </body>
+
+<footer class="d-flex mt-5 h-10 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <main class="px-3">
+        <h1>Ambacht.</h1>
+        <p class="lead">Ambachtelijkheden en allerlei andere baksels.</p>
+            <div class="row">
+              <div class="col-3 p-3">
+                  <h3>Voor de boeren</h3>
+                <p><a href="https://ambacht.online/registreer" class="text-white">Aanmelden als boer</a></p>
+                <p><a href="https://ambacht.online/inloggen" class="text-white">Inloggen als boer</a></p>
+              </div>
+              <div class="col-3 p-3">
+                  <h3>Voor de consumenten</h3>
+                  <p><a href="https://ambacht.online/producten" class="text-white">Bekijk het ruime assortiment</a></p>
+                  <p><a href="https://ambacht.online/markten" class="text-white">Neem een kijkje op de digitale marktplaats.</a></p>
+                  <p><a href="https://ambacht.online/profielen" class="text-white">Bekijk onze deelnemende boeren.</a></p>
+                  <p><a href="https://ambacht.online/categorieen" class="text-white">Zoek in de categorieen.</a></p>
+              </div>
+              <div class="col-3 p-3">
+                <h3>Over ons</h3>
+                <p><a href="https://ambacht.online/ons-verhaal" class="text-white">Hoe het allemaal begon</a></p>
+                <p><a href="https://ambacht.online/ons-missie" class="text-white">Onze missie</a></p>
+              </div>
+            <div class="col-3 p-3">
+                <h3>Ook belangrijk:</h3>
+                <p><a href="https://ambacht.online/informatie" class="text-white">Informatie</a></p>
+                <p><a href="https://ambacht.online/voorwaarden" class="text-white">Algemene voorwaarden</a></p>
+                <p><a href="https://ambacht.online/privacy" class="text-white">Privacy voorwaarden</a></p>
+            </div>
+            </div>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+        <p>Website <a href="https://ambacht.online/" class="text-white">Ambacht</a>, gemaakt door <a href="https://ambacht.online/credits" class="text-white">mensen.</a>.</p>
+        </footer>
+    </div>
+
+        </footer>
+    </div>
+
 </html>
