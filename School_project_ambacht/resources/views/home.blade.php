@@ -4,10 +4,32 @@
 
 <div class="container">
 
-<h1>Dit wordt de home pagina...</h1>
+<h1>Home</h1>
 
 <div class="container">
-    Hier komt een brede zoekcontainer...
+
+    <form action="/search" method="GET">
+        <div class="row g-6">
+            <div class="col-md-4">
+                <input type="text" name="keyword" class="form-control" placeholder="Zoeken...">
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="location" class="form-control" placeholder="Locatie...">
+            </div>
+            <div class="col-md-3">
+                <select class="form-select" aria-label="category" name="category">
+                    <option value="" selected>Alle categorieën</option>
+                    <option value="" disabled>--------------</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Zoeken...</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
