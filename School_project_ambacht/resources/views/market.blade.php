@@ -1,31 +1,32 @@
 @extends("layouts.app")
 
 @section("content")
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>User id</th>
-        <th>Label</th>
-        <th>Location</th>
-        <th>Photo</th>
-        <th>Description</th>
-        <th>Created at</th>
-        <th>Updated at</th>
-        <th>Has X products added</th>
-    </tr>
+<div class="container">
 
-@foreach ($markets as $market)
-<tr>
-    <td>{{$market->id}}</td>
-    <td>{{$market->user_id}}</td>
-    <td>{{$market->label}}</td>
-    <td>{{$market->location}}</td>
-    <td>{{$market->photo}}</td>
-    <td>{{$market->description}}</td>
-    <td>{{$market->created_at}}</td>
-    <td>{{$market->updated_at}}</td>
-</tr>
-@endforeach
+@if ($markets)
 
-</table>
+<h2>Markten</h2>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        @foreach ($markets as $market)
+        <div class="col">
+            <div class="card h-100">
+            <img src="resources/img/test/market.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$market->label}}</h5>
+                <p class="card-text">{{$market->description}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{{$market->created_at}}</small>
+            </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@else
+Er zijn geen markten...
+@endif
+</div>
 @endsection
