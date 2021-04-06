@@ -1,23 +1,33 @@
 @extends("layouts.app")
 
 @section("content")
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Created at</th>
-        <th>Updated at</th>
-        <th>Has X products</th>
-    </tr>
 
-@foreach ($categories as $category)
-<tr>
-    <td>{{$category->id}}</td>
-    <td>{{$category->name}}</td>
-    <td>{{$category->created_at}}</td>
-    <td>{{$category->updated_at}}</td>
-</tr>
-@endforeach
+<div class="container">
+@if ($categories)
 
-</table>
+<br>
+<h2>Categorieen</h2>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+
+        @foreach ($categories as $category)
+        <div class="col">
+            <div class="card h-100">
+            <img src="resources/img/test/category.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{$category->name}}</h5>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{{$category->created_at}}</small>
+            </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@else
+Er zijn geen categorieen...
+@endif
+</div>
 @endsection

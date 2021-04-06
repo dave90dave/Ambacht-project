@@ -38,6 +38,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('markets') }}">{{ __('Markets') }}</a>
                         </li>
                         <li class="nav-item">
@@ -45,6 +48,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categories') }}">{{ __('Categories') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('profile') }}">{{ __('Profiles') }}</a>
                         </li>
                     </ul>
 
