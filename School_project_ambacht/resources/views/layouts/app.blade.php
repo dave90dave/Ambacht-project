@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Ambacht') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Ambacht') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -77,4 +77,47 @@
         </main>
     </div>
 </body>
+
+<footer class="d-flex mt-5 h-10 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+        <main class="px-3">
+        <h1>Ambacht</h1>
+        <p class="lead">Ambachtelijkheden en allerlei andere baksels.</p>
+            <div class="row">
+              <div class="col-3 p-3">
+                  <h3>Voor de boeren</h3>
+                <p><a href="https://ambacht.online/registreer" class="text-white">Aanmelden als boer</a></p>
+                <p><a href="https://ambacht.online/inloggen" class="text-white">Inloggen als boer</a></p>
+              </div>
+              <div class="col-3 p-3">
+                  <h3>Voor de consumenten</h3>
+                  <p><a href="https://ambacht.online/producten" class="text-white">Bekijk het ruime assortiment</a></p>
+                  <p><a href="https://ambacht.online/markten" class="text-white">Neem een kijkje op de digitale marktplaats.</a></p>
+                  <p><a href="https://ambacht.online/profielen" class="text-white">Bekijk onze deelnemende boeren.</a></p>
+                  <p><a href="https://ambacht.online/categorieen" class="text-white">Zoek in de categorieen.</a></p>
+              </div>
+              <div class="col-3 p-3">
+                <h3>Over ons</h3>
+                <p><a href="https://ambacht.online/ons-verhaal" class="text-white">Hoe het allemaal begon</a></p>
+                <p><a href="https://ambacht.online/ons-missie" class="text-white">Onze missie</a></p>
+              </div>
+            <div class="col-3 p-3">
+                <h3>Ook belangrijk:</h3>
+                <p><a href="https://ambacht.online/informatie" class="text-white">Informatie</a></p>
+                <p><a href="https://ambacht.online/voorwaarden" class="text-white">Algemene voorwaarden</a></p>
+                <p><a href="https://ambacht.online/privacy" class="text-white">Privacy voorwaarden</a></p>
+            </div>
+            </div>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+        <p>Website <a href="https://ambacht.online/" class="text-white">Ambacht</a>, gemaakt door <a href="https://ambacht.online/credits" class="text-white">mensen.</a>.</p>
+        </footer>
+    </div>
+
+        </footer>
+    </div>
+
 </html>
