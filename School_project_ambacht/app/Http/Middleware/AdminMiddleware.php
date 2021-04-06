@@ -23,8 +23,8 @@ class AdminMiddleware
         }
         else
         {
-            return redirect('/home')->with('status','You are not Login to AdminPanel');
+            return redirect('/home')->with('status','Je hebt geen toegang tot het administratie scherm.');
         }
-        
+
     }
 }

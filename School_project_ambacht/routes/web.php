@@ -36,7 +36,7 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 	// you can use "/admin" instead of "/dashboard"
 	Route::get('/dashboard', function () {
     	return view('admin.dashboard');
-	});
+	})->name('adminPanel');
 	// below is used for adding the users.
 	Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registered')->name('role-register');
 	//below route for edit the users detail and update.
