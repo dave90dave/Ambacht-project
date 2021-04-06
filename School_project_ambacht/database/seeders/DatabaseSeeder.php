@@ -14,14 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
      $this->call(UsersTableSeeder::class);
-<<<<<<< Updated upstream
      $this->call(ProductsTableSeeder::class);
      $this->call(MarketsTableSeeder::class);
      $this->call(CategoriesTableSeeder::class);
-=======
-     //$this->call(ProductsTableSeeder::class);
-     //$this->call(MarketsTableSeeder::class);
-     //$this->call(CategoriesTableSeeder::class);
->>>>>>> Stashed changes
     }
 }
