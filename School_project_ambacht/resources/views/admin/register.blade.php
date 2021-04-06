@@ -22,7 +22,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table id="datatable" class="table">
                     <thead class=" text-primary">
                       <!-- fetch table data -->
                       <th>Id</th>
@@ -50,7 +50,7 @@
                           <form action="/role-delete/{{ $row->id }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger">DELETE</button> 
+                            <button type="submit" class="btn btn-danger">DELETE</button>
 <!-- <a href="/role-delete/" class="btn btn-danger">DELETE</a> it is not working or we are not submitting it-->
                           </form>
                         </td>
@@ -67,6 +67,9 @@
 @endsection()
 
 @section('scripts')
-
-
+<script>
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
+</script>
 @endsection()

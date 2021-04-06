@@ -16,6 +16,7 @@ class CreateMarketsTable extends Migration
         Schema::create('markets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // user_id, label, location, photo, description
         });
     }
 

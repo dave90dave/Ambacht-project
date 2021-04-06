@@ -18,6 +18,7 @@ class MarketsTableSeeder extends Seeder
             //'name' => 'Alkmaarse Vismarkt',
             //'description' => 'een eventuele beschrijving indien dat nodig is',
             'created_at' => now()
+            //'updated_at' => now()
         ]);
     }
 }

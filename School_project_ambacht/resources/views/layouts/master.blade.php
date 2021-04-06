@@ -18,6 +18,7 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}" />
 </head>
 
 <body class="">
@@ -27,7 +28,7 @@
   	<!-- sidebar star -->
     <div class="sidebar" data-color="orange"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red |yellow"-->
       <div class="logo">
-        
+
         <!--<img src="{{ URL::to('/assets/img/log.jpg') }}" width="100" height="100">
         --><h3>Admin-Panel </h3>
         <!--<a href="http://www.creative-tim.com" class="simple-text logo-mini">
@@ -57,13 +58,13 @@
               <i class="now-ui-icons location_map-big"></i>
               <p>Maps</p>
             </a>
-          </li> 
+          </li>
           <li>
             <a href="./notifications.html">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
-          </li> 
+          </li>
           <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
             <a href="/role-register"> <!--edit here for user profile -->
               <i class="now-ui-icons users_single-02"></i>
@@ -71,9 +72,10 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+          <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
+            <a href="/products">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+              <p>Products List</p>
             </a>
           </li>
           <!-- <li>
@@ -81,7 +83,7 @@
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
             </a>
-          </li> 
+          </li>
           <li class="active-pro">
             <a href="./upgrade.html">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
@@ -133,7 +135,7 @@
                   </p>
                 </a>
               </li>
-              
+
               <!-- here we paste or write logout code -->
 
 <li class="nav-item dropdown">
@@ -187,7 +189,7 @@
       <div class="content">
       	@yield('content')
 
-        
+
       </div>
       <footer class="footer">
         <div class="container-fluid">
@@ -226,6 +228,9 @@
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
+
+  <script src="{{ asset('assets/js/dataTables.min.js') }}">
+
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
