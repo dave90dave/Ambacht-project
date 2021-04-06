@@ -54,13 +54,13 @@
             </a>
           </li>end comments-->
           <li>
-            <a href="./map.html">
+            <a href="#">
               <i class="now-ui-icons location_map-big"></i>
               <p>Maps</p>
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="#">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
