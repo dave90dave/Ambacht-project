@@ -32,6 +32,12 @@ class HomeController extends Controller
         return view('home', compact('products', 'markets', 'profiles', 'categories'));
     }
 
+    public function profile()
+    {
+        $profiles = User::all();
+        return view('profile', compact('profiles'));
+    }
+
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');

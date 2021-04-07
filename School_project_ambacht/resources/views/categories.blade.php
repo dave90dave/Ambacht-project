@@ -5,7 +5,6 @@
 <div class="container">
 @if ($categories)
 
-<br>
 <h2>Categorieen</h2>
 
 <div class="container">
