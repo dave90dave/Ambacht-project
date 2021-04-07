@@ -1,8 +1,8 @@
 @extends("layouts.app")
 
 @section("content")
-<div class="container">
 
+<div class="container">
 @if ($markets)
 
 <h2>Markten</h2>

@@ -5,7 +5,6 @@
 <div class="container">
 @if ($products)
 
-<br>
 <h2>Producten</h2>
 
 <div class="container">
