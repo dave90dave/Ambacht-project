@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 class LoginController extends Controller
 {
@@ -26,6 +27,19 @@ class LoginController extends Controller
      *
      * @var string
      */
+    //i changed this , now do code below
+    //protected $redirectTo = '/home';
+    protected function redirectTo()
+    {
+        if(Auth::user()->usertype == 'admin')
+        {
+            return 'dashboard';
+        }
+        else
+        {
+            return 'home';
+        }
+    }
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**

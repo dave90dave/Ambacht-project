@@ -21,6 +21,7 @@ class CreateMarketsTable extends Migration
             $table->string('photo');
             $table->string('description');
             $table->timestamps();
+            // user_id, label, location, photo, description
         });
     }
 
