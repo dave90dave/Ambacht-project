@@ -15,10 +15,13 @@ class MarketsTableSeeder extends Seeder
     public function run()
     {
         DB::table('markets')->insert([
-            //'name' => 'Alkmaarse Vismarkt',
-            //'description' => 'een eventuele beschrijving indien dat nodig is',
-            'created_at' => now()
-            //'updated_at' => now()
+            'user_id' => '1',
+            'name' => 'Alkmaarse Vismarkt',
+            'location' => 'location',
+            'photo' => 'photo',
+            'description' => 'een eventuele beschrijving indien dat nodig is',
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
     }
 }
