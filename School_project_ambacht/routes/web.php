@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\ProductsController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/market', function () {
     return view('market');
 });
@@ -63,3 +59,10 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     //Route::get('/admin.products', [ProductsController::class, 'show']);
 });
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])->name('markets');
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
+Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
