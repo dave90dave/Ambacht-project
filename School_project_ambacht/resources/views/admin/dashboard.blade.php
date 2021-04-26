@@ -6,35 +6,26 @@
 
 @section('content')
 
-<div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title"> Users Data</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>Name</th>
-                      <th>Country</th>
-                      <th>City</th>
-                      <th>Salary</th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Jaap</td>
-                        <td>Nederland</td>
-                        <td>Alkmaar</td>
-                        <td>30 Euro</td>
-                       </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+{{--    @foreach ($data as $key => $user)--}}
+{{--        <tr>--}}
+{{--            <td>{{ ++$i }}</td>--}}
+{{--            <td>{{ $user->name }}</td>--}}
+{{--            <td>{{ $user->email }}</td>--}}
+{{--            <td>{{ $user->usertype }}</td>--}}
+
+{{--            </td>--}}
+{{--            <td class="text-center">--}}
+{{--                <a dusk="edit-button" href="{{ route('users.edit', $user->id)}}" class="btn btn-primary btn-sm">Bewerken</a>--}}
+{{--                <a dusk="show-button" href="{{ route('users.show', $user->id)}}" class="btn btn-primary btn-sm">Detail</a>--}}
+{{--                <form action="{{ route('users.destroy', $user->id)}}" method="post" style="display: inline-block">--}}
+{{--                    @csrf--}}
+{{--                    @method('DELETE')--}}
+{{--                    <button class="btn btn-danger btn-sm" type="submit">Delete</button>--}}
+{{--                </form>--}}
+{{--            </td>--}}
+{{--        </tr>--}}
+{{--    @endforeach--}}
+{{--</table>--}}
 
 @endsection()
 

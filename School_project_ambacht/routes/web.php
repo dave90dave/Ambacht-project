@@ -34,15 +34,23 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     	return view('admin.dashboard');
 	})->name('adminPanel');
 	// below is used for adding the users.
-	Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registered')->name('role-register');
-	//below route for edit the users detail and update.
-	Route::get('/role-edit/{id}','App\Http\Controllers\Admin\DashboardController@registeredit');
-	//update button route
-	Route::put('/role-register-update/{id}','App\Http\Controllers\Admin\DashboardController@registerupdate');
-	//delete route
-	Route::delete('/role-delete/{id}','App\Http\Controllers\Admin\DashboardController@registerdelete');
+    Route::get('/users','App\Http\Controllers\Admin\DashboardController@users')->name('users');
+    //below route for edit the users detail and update.
+    Route::get('/user-edit/{id}','App\Http\Controllers\Admin\DashboardController@useredit');
+    //update button route
+    Route::put('/user-register-update/{id}','App\Http\Controllers\Admin\DashboardController@userupdate');
+    //delete route
+    Route::delete('/user-delete/{id}','App\Http\Controllers\Admin\DashboardController@userdelete');
 
     Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
+
+    Route::any('/search',function(){
+        $q = Input::get ( 'q' );
+        $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+        if(count($user) > 0)
+            return view('welcome')->withDetails($user)->withQuery ( $q );
+        else return view ('welcome')->withMessage('No Details found. Try to search again !');
+    });
 
 
 	Route::get('/products-create','App\Http\Controllers\Admin\ProductsController@Create');

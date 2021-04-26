@@ -35,7 +35,7 @@ public function store(Request $request)
     }
 
 
-// here we create fuction for edit users
+// here we create a function for editing users
 public function registeredit(Request $request, $id)
 {
     $data = Product::findOrFail($id);
@@ -57,6 +57,8 @@ public function registerupdate(Request $request, $id)
 
     return redirect('/products')->with('status','data is updated');
 }
+
+
 //delete function
 public function registerdelete($id)
 {
