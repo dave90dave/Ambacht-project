@@ -117,7 +117,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
               <form action="{{ route('searchuser') }}" method="GET" role="search">
                   {{ csrf_field() }}
-                  <div class="input-group-text">
+                  <div class="input-group no-border">
                 <input type="text" value="" class="form-control" placeholder="Search..." name="q">
                   <div class="input-group-append">
                       <div class="input-group-text">
