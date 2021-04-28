@@ -20,6 +20,12 @@ class Product extends Model
         'description',
     ];
 
+    public function scopeUserProductsActive($idLoggedinUser)
+    {
+        $userProducts = Product::all()->where('user_id', $idLoggedinUser)->count();
+        return $userProducts;
+    }
+
     public function market(){
         return $this->belongsToMany(Market::class);
     }
