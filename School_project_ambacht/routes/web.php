@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\ProductsController;
+
+
 
 Route::get('/market', function () {
     return view('market');
@@ -42,15 +44,9 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     //delete route
     Route::delete('/user-delete/{id}','App\Http\Controllers\Admin\DashboardController@userdelete');
 
-    Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
+    Route::get('/searchuser/', 'App\Http\Controllers\UserController@searchuser')->name('searchuser');
 
-    Route::any('/search',function(){
-        $q = Input::get ( 'q' );
-        $user = User::where('name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
-        if(count($user) > 0)
-            return view('welcome')->withDetails($user)->withQuery ( $q );
-        else return view ('welcome')->withMessage('No Details found. Try to search again !');
-    });
+    Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
 
 
 	Route::get('/products-create','App\Http\Controllers\Admin\ProductsController@Create');

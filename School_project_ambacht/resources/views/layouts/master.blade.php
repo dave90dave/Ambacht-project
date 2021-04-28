@@ -40,7 +40,7 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <!--how to set active menu link ternary operator class="{{ 'role-register' == request()->path() ? 'active' : ''}}" -->
+          <!--how to set active menu link ternary operator class="{{ 'users' == request()->path() ? 'active' : ''}}" -->
           <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
             <a href="/dashboard">
               <i class="now-ui-icons design_app"></i>
@@ -64,15 +64,8 @@
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
-          </li>
-              <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
-                  <a href="/users"> <!--edit here for user profile -->
-                      <i class="now-ui-icons users_single-02"></i>
-                      <p>gebruikers</p>
-                  </a>
-              </li>
-          <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
-            <a href="/role-register"> <!--edit here for user profile -->
+          <li class="{{ 'users' == request()->path() ? 'active' : ''}}">
+            <a href="/users"> <!--edit here for user profile -->
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
             </a>
@@ -122,7 +115,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <form action="/search" method="POST" role="search">
+              <form action="{{ route('searchuser') }}" method="GET" role="search">
                   {{ csrf_field() }}
                 <input type="text" value="" class="form-control" placeholder="Search..." name="q">
                 <div class="input-group-append">
