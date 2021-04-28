@@ -117,13 +117,15 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
               <form action="{{ route('searchuser') }}" method="GET" role="search">
                   {{ csrf_field() }}
-                <input type="text" value="" class="form-control" placeholder="Search..." name="q">
-                <div class="input-group-append">
                   <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                <input type="text" value="" class="form-control" placeholder="Search..." name="q">
+                  <div class="input-group-append">
+                      <div class="input-group-text">
+                          <i class="now-ui-icons ui-1_zoom-bold"></i>
+                      </div>
                   </div>
-                </div>
-            </form>
+                  </div>
+              </form>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
