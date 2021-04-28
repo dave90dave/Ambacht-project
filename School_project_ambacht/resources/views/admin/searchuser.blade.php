@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Welcome to Digital CRM!
+    Welkom bij Greenmarket!
 @endsection()
 
 

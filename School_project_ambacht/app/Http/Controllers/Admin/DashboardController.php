@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+
     public function users()
     {
-
     	$users = User::all();
 
     	return view('admin.users')->with('users',$users);

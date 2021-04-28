@@ -56,25 +56,25 @@
           <li>
             <a href="#">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+              <p>Google Maps</p>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+              <p>Notificaties</p>
             </a>
           <li class="{{ 'users' == request()->path() ? 'active' : ''}}">
             <a href="/users"> <!--edit here for user profile -->
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>Gebruikers</p>
             </a>
           </li>
           <li>
           <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
             <a href="/products">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Products List</p>
+              <p>Producten</p>
             </a>
           </li>
           <!-- <li>
@@ -107,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Table List</a>
+            <a class="navbar-brand" href="#pablo">Tabel Lijst.</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -118,7 +118,7 @@
               <form action="{{ route('searchuser') }}" method="GET" role="search">
                   {{ csrf_field() }}
                   <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search..." name="q">
+                <input type="text" value="" class="form-control" placeholder="Zoeken..." name="q">
                   <div class="input-group-append">
                       <div class="input-group-text">
                           <i class="now-ui-icons ui-1_zoom-bold"></i>
@@ -131,7 +131,7 @@
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
+                    <span class="d-lg-none d-md-block">Statistieken</span>
                   </p>
                 </a>
               </li>
