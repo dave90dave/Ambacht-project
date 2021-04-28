@@ -105,6 +105,18 @@
     </div>
 </body>
 
+
+<div class="cookiebar">
+{{$cookiesAccepted = Cookie::get('cookiesAccepted');
+    if ($cookiesAccepted){
+        echo "Cookies geaccepteerd";
+    } else {
+        "Cookies nog niet geaccepteerd";
+    }
+}}
+
+</div>
+
 <footer class="d-flex mt-5 h-10 text-center text-white bg-dark">
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
