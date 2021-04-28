@@ -54,7 +54,7 @@
                             <a class="nav-link" href="{{ route('categories') }}">{{ __('Categories') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile') }}">{{ __('Profiles') }}</a>
+                            <a class="nav-link" href="{{ route('profiles') }}">{{ __('Profiles') }}</a>
                         </li>
                     </ul>
 
