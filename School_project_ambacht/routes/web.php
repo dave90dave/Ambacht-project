@@ -30,9 +30,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 //create for redirect to admin panel using middleware (we have changes in AdminMiddleware,kernel,LoginController files //here auth and admin indicate to folder)
 Route::group(['middleware'  => ['auth','admin']], function() {
 	// you can use "/admin" instead of "/dashboard"
-	Route::get('/dashboard', function () {
-    	return view('admin.dashboard');
-	})->name('adminPanel');
+    Route::get('/dashboard', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
 	// below is used for adding the users.
 	Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registered')->name('role-register');
 	//below route for edit the users detail and update.
