@@ -45,16 +45,16 @@
                             <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('markets') }}">{{ __('Markets') }}</a>
+                            <a class="nav-link" href="{{ route('markets') }}">{{ __('Markten') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('products') }}">{{ __('Products') }}</a>
+                            <a class="nav-link" href="{{ route('products') }}">{{ __('Producten') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categories') }}">{{ __('Categories') }}</a>
+                            <a class="nav-link" href="{{ route('categories') }}">{{ __('Categorieen') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('profile') }}">{{ __('Profiles') }}</a>
+                            <a class="nav-link" href="{{ route('profile') }}">{{ __('Profielen') }}</a>
                         </li>
                     </ul>
 
@@ -70,7 +70,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registreren') }}</a>
                                 </li>
                             @endif
                         @else
