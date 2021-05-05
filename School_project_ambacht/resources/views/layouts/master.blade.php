@@ -53,8 +53,8 @@
               <p>Icons</p>
             </a>
           </li>end comments-->
-          <li>
-            <a href="#">
+              <li class="{{ 'map' == request()->path() ? 'active' : ''}}">
+                  <a href="/map">
               <i class="now-ui-icons location_map-big"></i>
               <p>Google Maps</p>
             </a>

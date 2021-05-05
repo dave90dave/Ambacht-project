@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MapController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,8 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     Route::delete('/user-delete/{id}','App\Http\Controllers\Admin\DashboardController@userdelete');
 
     Route::get('/searchuser/', 'App\Http\Controllers\UserController@searchuser')->name('searchuser');
+
+    Route::get('/map/', 'App\Http\Controllers\MapController@index')->name('map');
 
     Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
 
