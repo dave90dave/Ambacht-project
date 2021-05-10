@@ -18,7 +18,7 @@
       <div class="card h-100 text-white bg-dark">
         <div class="card-body">
           <h5 class="card-title">Actieve kraampjes</h5>
-          <p class="card-text">{{$marketsActive}}</p>
+          <h3>{{$marketsActive}}</h3>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="card h-100 text-white bg-dark">
         <div class="card-body">
           <h5 class="card-title">Actieve producten</h5>
-          <p class="card-text">{{$productsActive}}</p>
+          <h3>{{$productsActive}}</h3>
         </div>
       </div>
     </div>
@@ -34,7 +34,13 @@
       <div class="card h-100 text-white bg-dark">
         <div class="card-body">
           <h5 class="card-title">Jouw profiel:</h5>
-          <p class="card-text">Publiek zichtbaar {{$profileStatus}}</p>
+              @if ($profileStatus == '1')
+                <p class="card-text">Openbaar</p>
+                <a href="">Maak verborgen</a>
+              @elseif ($profileStatus == '0')
+                <p class="card-text">Verborgen</p>
+                <a href="">Maak openbaar</a>
+              @endif
         </div>
       </div>
     </div>
