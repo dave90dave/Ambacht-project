@@ -14,7 +14,7 @@
             <div class="card h-100">
             <img src="/resources/img/test/profile.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title"><a href="/profile/{{$profile->id}}">{{$profile->name}}</</h5>
+                <h5 class="card-title"><a href="/profile/{{$profile->id}}">{{$profile->name}}</a></h5>
                 <p class="card-text">Heeft X markten, met in totaal X producten</p>
             </div>
             <div class="card-footer">
