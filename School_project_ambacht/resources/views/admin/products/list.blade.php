@@ -52,11 +52,11 @@
                         <td>{{$product['description']}}</td>
 
                         <td>
-                          <a href="/role-products-edit/{{ $product->id }}" class="btn btn-success">EDIT</a>
+                          <a href="/admin/product/edit/{{ $product->id }}" class="btn btn-success">EDIT</a>
                         </td>
                         <td>
                           <!-- we have to add form method because without form method it will show error-->
-                          <form action="/role-products-delete/{{ $product->id }}" method="post">
+                          <form action="/admin/product/delete/{{ $product->id }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger">DELETE</button>

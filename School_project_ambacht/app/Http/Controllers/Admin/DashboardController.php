@@ -9,23 +9,23 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public function registered()
+    public function list()
     {
 
     	$users = User::all();
 
-    	return view('admin.register')->with('users',$users);
+    	return view('admin.users.list')->with('users',$users);
 
     }
     // here we create fuction for edit users
-    public function registeredit(Request $request, $id)
+    public function updateUserView(Request $request, $id)
     {
     	$users = User::findOrFail($id);
-    	return view('admin.register-edit')->with('users',$users);
+    	return view('admin.users.edit')->with('users',$users);
     }
 
     // here we create function for update button
-    public function registerupdate(Request $request, $id)
+    public function updateUserPut(Request $request, $id)
     {
 
         $request->validate([
@@ -46,12 +46,12 @@ class DashboardController extends Controller
         $users->password = Hash::make($request->password);
     	$users->update();
 
-    	return redirect('/role-register')->with('status','data is updated');
+    	return redirect('/admin/users')->with('status','data is updated');
     }
 
-public function createUser()
+public function createUserView()
 {
-    return view('admin.register-create');
+    return view('admin.users.create');
 }
 
     public function createUserPost(Request $request)
@@ -79,12 +79,12 @@ public function createUser()
     }
 
     //delete function
-    public function registerdelete($id)
+    public function deleteUser($id)
     {
         $users = User::findOrFail($id);
         $users->delete();
 
-        return redirect('/role-register')->with('status','data deleted');
+        return redirect('/admin/users')->with('status','data deleted');
 
     }
 }

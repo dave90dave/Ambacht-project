@@ -8,18 +8,17 @@ use App\Models\Product;
 
 class ProductsController extends Controller
 {
-public function show()
+public function list()
 {
     $data= Product::all();
-    return view('admin.products', ['products'=>$data]);
+    return view('admin.products.list', ['products'=>$data]);
 }
-public function create()
+public function createUserView()
     {
-
-        return view('admin.products-create');
+        return view('admin.products.create');
     }
 
-public function store(Request $request)
+public function createUserPost(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -36,14 +35,14 @@ public function store(Request $request)
 
 
 // here we create fuction for edit users
-public function registeredit(Request $request, $id)
+public function updateProductView(Request $request, $id)
 {
     $data = Product::findOrFail($id);
-    return view('admin.products-edit')->with('products',$data);
+    return view('admin.products.edit')->with('products',$data);
 }
 
 // here we create function for update button
-public function registerupdate(Request $request, $id)
+public function updateProductPut(Request $request, $id)
 {
     $data = Product::find($id);
     $data->name = $request->input('name');
@@ -55,15 +54,15 @@ public function registerupdate(Request $request, $id)
     $data->description = $request->input('description');
     $data->update();
 
-    return redirect('/products')->with('status','data is updated');
+    return redirect('/admin/products')->with('status','data is updated');
 }
 //delete function
-public function registerdelete($id)
+public function deleteProduct($id)
 {
     $data = Product::findOrFail($id);
     $data->delete();
 
-    return redirect('/products')->with('status','data deleted');
+    return redirect('/admin/products')->with('status','data deleted');
 
 }
 }

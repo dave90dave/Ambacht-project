@@ -69,7 +69,7 @@
 				     	</div>
 
 				     	<button type="Submit" class="btn btn-success">Submit</button>
-				     	<a href="/role-register" class="btn btn-danger">Cancel</a>
+				     	<a href="/admin/users" class="btn btn-danger">Cancel</a>
 					</form>
 						</div>
 					</div>

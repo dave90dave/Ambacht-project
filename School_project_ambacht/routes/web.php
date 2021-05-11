@@ -31,33 +31,33 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     //USERS
 
     //list
-	Route::get('/admin/users','App\Http\Controllers\Admin\DashboardController@registered')->name('users');
+	Route::get('/admin/users','App\Http\Controllers\Admin\DashboardController@list')->name('users');
     //create
-	Route::get('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUser');
+	Route::get('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserView');
     //create update
 	Route::post('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserPost');
     //update
-	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@registeredit');
+	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserView');
     //update store
-	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@registerupdate');
+	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserPut');
     //delete
-	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\DashboardController@registerdelete');
+	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\DashboardController@deleteUser');
 
 
     //PRODUCTS
 
     //list
-    Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@show');
+    Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@list');
 	//create
-    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@Create');
+    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createUserView');
     //create store
-    Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@show', 'store');
+    Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductPost');
 	//update
-	Route::get('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@registeredit');
+	Route::get('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductView');
 	//update store
-	Route::put('/admin/product/update/{id}','App\Http\Controllers\Admin\ProductsController@registerupdate');
+	Route::put('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductPut');
 	//delete
-	Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@registerdelete');
+	Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@deleteProduct');
 
 });
 
