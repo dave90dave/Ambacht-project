@@ -66,30 +66,29 @@
             </a>
           </li>
           <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
-            <a href="/role-register"> <!--edit here for user profile -->
+            <a href="/admin/users"> <!--edit here for user profile -->
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>Users</p>
             </a>
           </li>
           <li>
           <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
-            <a href="/products">
+            <a href="/admin/products">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Products List</p>
+              <p>Products</p>
+            </a>
+          </li>
+          <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
+            <a href="/admin/products">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Markets</p>
             </a>
           </li>
           <!-- <li>
             <a href="./typography.html">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li> -->
+            </a>-->
         </ul>
       </div>
     </div>

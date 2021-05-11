@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
 @section('title')
-			Edit-Registered User:
+			Edit User:
 @endsection()
 
 @section('content')
-			
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-12"><!-- 12 row -->
 			<div class="card">
 				<div class="card-header">
-					<h3>Edit User's</h3>
-				
+					<h3>Edit User</h3>
+
 				</div>
 				<div class="card-body">
 					<div class="row">
@@ -40,12 +40,12 @@
 					</div>
 
 				</div>
-					
+
 			</div>
 		</div>
 	</div>
 </div>
-			
+
 @endsection()
 
 @section('scripts')
