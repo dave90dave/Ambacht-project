@@ -17,8 +17,6 @@ use App\Http\Controllers\ProductsController;
 
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-
 //admin panel
 Route::group(['middleware'  => ['auth','admin']], function() {
 
