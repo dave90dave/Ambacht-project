@@ -21,7 +21,7 @@ Auth::routes();
 Route::group(['middleware'  => ['auth','admin']], function() {
 
 	// you can use "/admin" instead of "/dashboard"
-    Route::get('/dashboard', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
+    Route::get('/admin', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
 
     Route::redirect('/dashboard', '/admin', 301);
 
