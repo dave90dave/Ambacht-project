@@ -39,6 +39,12 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 	Route::get('/role-edit/{id}','App\Http\Controllers\Admin\DashboardController@registeredit');
 	//update button route
 	Route::put('/role-register-update/{id}','App\Http\Controllers\Admin\DashboardController@registerupdate');
+
+    //load create user page.
+	Route::get('/create','App\Http\Controllers\Admin\DashboardController@createUser');
+	//save the user to db
+	Route::post('/create-user','App\Http\Controllers\Admin\DashboardController@createUserPost');
+
 	//delete route
 	Route::delete('/role-delete/{id}','App\Http\Controllers\Admin\DashboardController@registerdelete');
 
