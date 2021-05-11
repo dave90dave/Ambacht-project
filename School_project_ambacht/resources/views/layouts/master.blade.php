@@ -79,7 +79,7 @@
             </a>
           </li>
           <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
-            <a href="/admin/markets
+            <a href="/admin/markets">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Markets</p>
             </a>
