@@ -48,6 +48,36 @@ class DashboardController extends Controller
 
     	return redirect('/role-register')->with('status','data is updated');
     }
+
+public function createUser()
+{
+    return view('admin.register-create');
+}
+
+    public function createUserPost(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email',
+            'public' => 'boolean',
+            'phoneNumber' => '',
+            'usertype' => '',
+            'password' => 'required|confirmed|min:8|max:255',
+        ]);
+
+    	User::create([
+    	'name' => $request['name'],
+    	'email' => $request['email'],
+    	'public' => $request['public'],
+    	'phoneNumber' => $request['phoneNumber'],
+    	'usertype' => $request['usertype'],
+        'password' => Hash::make($request['password'])
+        ]);
+
+    	return redirect('/role-register')->with('status','data is created');
+    }
+
     //delete function
     public function registerdelete($id)
     {
