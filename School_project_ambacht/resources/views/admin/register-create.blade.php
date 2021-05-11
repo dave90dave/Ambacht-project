@@ -28,7 +28,7 @@
 						<div class="col-md-8"> <!--col-md-8 means 8 row  and form put into one row and updtate the button below-->
 							<form action="/create-user/" method="POST" ><!-- here we update the button-->
 								{{ csrf_field() }}
-								{{ method_field('PUT') }}
+								{{ method_field('POST') }}
 						<div class="form-group">
 				    		<label>Name</label>
 				    		<input type="text" name="name" class="form-control">
