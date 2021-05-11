@@ -16,6 +16,13 @@ class Market extends Model
         'description',
     ];
 
+
+    public function scopeUserMarketsActive($idLoggedinUser)
+    {
+        $userMarkets = Market::all()->where('user_id', $idLoggedinUser)->count();
+        return $userMarkets;
+    }
+
     public function products(){
         return $this->HasMany(Product::class);
     }

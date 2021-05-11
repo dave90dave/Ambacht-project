@@ -21,12 +21,11 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
 //admin panel
 Route::group(['middleware'  => ['auth','admin']], function() {
-    Route::redirect('/dashboard', '/admin', 301);
 
-    // you can use "/admin" instead of "/dashboard"
-	Route::get('/admin', function () {
-    	return view('admin.dashboard');
-	})->name('adminPanel');
+	// you can use "/admin" instead of "/dashboard"
+    Route::get('/dashboard', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
+
+    Route::redirect('/dashboard', '/admin', 301);
 
     //USERS
 
