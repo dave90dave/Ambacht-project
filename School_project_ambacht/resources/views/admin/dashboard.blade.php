@@ -1,7 +1,9 @@
 @extends('layouts.master')
 
 @section('title')
-    Admin dashboard
+
+			Admin panel
+
 @endsection()
 
 @section('content')
