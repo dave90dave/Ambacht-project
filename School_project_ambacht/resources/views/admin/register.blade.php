@@ -21,6 +21,9 @@
                   @endif
               </div>
               <div class="card-body">
+                <td>
+                    <a href="/create" class="btn btn-success">CREATE</a>
+                  </td>
                 <div class="table-responsive">
                   <table id="datatable" class="table">
                     <thead class=" text-primary">

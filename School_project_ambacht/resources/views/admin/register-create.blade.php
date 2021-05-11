@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-			Edit User:
+			Edit-Registered User:
 @endsection()
 
 @section('content')
@@ -11,7 +11,7 @@
 		<div class="col-md-12"><!-- 12 row -->
 			<div class="card">
 				<div class="card-header">
-					<h3>Edit User</h3>
+					<h3>Create User</h3>
 
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -26,27 +26,27 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-8"> <!--col-md-8 means 8 row  and form put into one row and updtate the button below-->
-							<form action="/role-register-update/{{ $users->id }}" method="POST" ><!-- here we update the button-->
+							<form action="/create-user/" method="POST" ><!-- here we update the button-->
 								{{ csrf_field() }}
-								{{ method_field('PUT') }}
+								{{ method_field('POST') }}
 						<div class="form-group">
 				    		<label>Name</label>
-				    		<input type="text" name="name" value="{{ $users->name }}" class="form-control">
+				    		<input type="text" name="name" class="form-control">
 				     	</div>
 
                         <div class="form-group">
 				    		<label>email</label>
-				    		<input type="text" name="email" value="{{ $users->email }}" class="form-control">
+				    		<input type="text" name="email" class="form-control">
 				     	</div>
 
                          <div class="form-group">
 				    		<label>Public</label>
-                            <input type="checkbox" name="public" value="{{ $users->public }}" class="form-control">
+                            <input type="checkbox" name="public" value="1" class="form-control">
 				     	</div>
 
                          <div class="form-group">
 				    		<label>Phone number</label>
-				    		<input type="text" name="phoneNumber" value="{{ $users->phoneNumber }}" class="form-control">
+				    		<input type="text" name="phoneNumber" class="form-control">
 				     	</div>
 
 				     	<div class="form-group">
