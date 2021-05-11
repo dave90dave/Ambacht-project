@@ -32,6 +32,10 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 
     //list
 	Route::get('/admin/users','App\Http\Controllers\Admin\DashboardController@registered')->name('users');
+    //create
+	Route::get('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUser');
+    //create update
+	Route::post('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserPost');
     //update
 	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@registeredit');
     //update store

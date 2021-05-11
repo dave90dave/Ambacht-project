@@ -22,7 +22,7 @@
               </div>
               <div class="card-body">
                 <td>
-                    <a href="/create" class="btn btn-success">CREATE</a>
+                    <a href="/admin/user/create/" class="btn btn-success">CREATE</a>
                   </td>
                 <div class="table-responsive">
                   <table id="datatable" class="table">

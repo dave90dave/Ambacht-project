@@ -59,7 +59,7 @@ public function createUser()
 
         $request->validate([
             'name' => 'required|max:30',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'public' => 'boolean',
             'phoneNumber' => '',
             'usertype' => '',
@@ -75,7 +75,7 @@ public function createUser()
         'password' => Hash::make($request['password'])
         ]);
 
-    	return redirect('/role-register')->with('status','data is created');
+    	return redirect('/admin/users')->with('status','data is created');
     }
 
     //delete function
