@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,9 +27,23 @@ class DashboardController extends Controller
     // here we create function for update button
     public function registerupdate(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email',
+            'public' => 'boolean',
+            'phoneNumber' => '',
+            'usertype' => '',
+            'password' => 'required|confirmed|min:8|max:255',
+        ]);
+
     	$users = User::find($id);
-    	$users->name = $request->input('username');
-    	$users->usertype = $request->input('usertype');
+    	$users->name = $request->name;
+    	$users->email = $request->email;
+    	$users->public = $request->public;
+    	$users->phoneNumber = $request->phoneNumber;
+    	$users->usertype = $request->usertype;
+        $users->password = Hash::make($request->password);
     	$users->update();
 
     	return redirect('/role-register')->with('status','data is updated');

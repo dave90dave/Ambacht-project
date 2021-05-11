@@ -68,14 +68,14 @@
           <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
             <a href="/role-register"> <!--edit here for user profile -->
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>Users</p>
             </a>
           </li>
           <li>
           <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
             <a href="/products">
               <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Products List</p>
+              <p>Products</p>
             </a>
           </li>
           <!-- <li>
