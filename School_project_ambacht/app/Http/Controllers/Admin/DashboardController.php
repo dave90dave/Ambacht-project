@@ -14,14 +14,14 @@ class DashboardController extends Controller
 
     	$users = User::all();
 
-    	return view('admin.register')->with('users',$users);
+    	return view('admin.users.list')->with('users',$users);
 
     }
     // here we create fuction for edit users
     public function updateUserView(Request $request, $id)
     {
     	$users = User::findOrFail($id);
-    	return view('admin.register-edit')->with('users',$users);
+    	return view('admin.users.edit')->with('users',$users);
     }
 
     // here we create function for update button
@@ -46,12 +46,12 @@ class DashboardController extends Controller
         $users->password = Hash::make($request->password);
     	$users->update();
 
-    	return redirect('/role-register')->with('status','data is updated');
+    	return redirect('/admin/users')->with('status','data is updated');
     }
 
 public function createUserView()
 {
-    return view('admin.register-create');
+    return view('admin.users.create');
 }
 
     public function createUserPost(Request $request)
@@ -84,7 +84,7 @@ public function createUserView()
         $users = User::findOrFail($id);
         $users->delete();
 
-        return redirect('/role-register')->with('status','data deleted');
+        return redirect('/admin/users')->with('status','data deleted');
 
     }
 }
