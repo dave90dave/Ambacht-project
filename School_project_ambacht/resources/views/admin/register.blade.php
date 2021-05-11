@@ -12,7 +12,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Registered User's</h4>
+                <h4 class="card-title">Users</h4>
                   <!-- for show the message updadated copy from home.blade.phpfile-->
                  @if (session('status'))
                               <div class="alert alert-success" role="alert">
