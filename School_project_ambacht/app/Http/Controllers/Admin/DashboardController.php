@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public function registered()
+    public function list()
     {
 
     	$users = User::all();
@@ -18,14 +18,14 @@ class DashboardController extends Controller
 
     }
     // here we create fuction for edit users
-    public function registeredit(Request $request, $id)
+    public function updateUserView(Request $request, $id)
     {
     	$users = User::findOrFail($id);
     	return view('admin.register-edit')->with('users',$users);
     }
 
     // here we create function for update button
-    public function registerupdate(Request $request, $id)
+    public function updateUserPut(Request $request, $id)
     {
 
         $request->validate([
@@ -49,7 +49,7 @@ class DashboardController extends Controller
     	return redirect('/role-register')->with('status','data is updated');
     }
 
-public function createUser()
+public function createUserView()
 {
     return view('admin.register-create');
 }
@@ -79,7 +79,7 @@ public function createUser()
     }
 
     //delete function
-    public function registerdelete($id)
+    public function deleteUser($id)
     {
         $users = User::findOrFail($id);
         $users->delete();
