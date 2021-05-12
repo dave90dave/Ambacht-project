@@ -233,7 +233,7 @@
 
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEWVA92pLCsgz2nIBP5wzXG7_z-RZrO8c"></script>
   <!-- Chart JS -->
   <script src="../assets/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
