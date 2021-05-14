@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
+
 class HomeController extends Controller
 {
     /**

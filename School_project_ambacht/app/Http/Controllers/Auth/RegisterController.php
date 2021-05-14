@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,11 +66,41 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+
+        User::create([
             'name' => $data['name'],
             'phone' => $data['phone'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $this->upload($data);
+
+        return redirect()->back();
+    }
+
+    private function upload($request)
+    {
+
+        if($request->hasFile('image')){
+//            $filename = $request->image->getClientOriginalName();
+//            $request->image->storeAs('images',$filename,'public');
+//            Auth()->user()->update(['image'=>$filename]);
+
+            $image      = $request->file('image');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+
+            $img = Image::make($image->getRealPath());
+            $img->resize(120, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $img->stream(); // <-- Key point
+
+            //dd();
+            Storage::disk('local')->put('images/profile'.'/'.$fileName, $img, 'public');
+        }
+
     }
 }

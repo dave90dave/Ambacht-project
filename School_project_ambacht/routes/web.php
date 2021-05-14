@@ -29,6 +29,7 @@ Route::get('/product', function () {
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::post('/home','RegisterController@upload')->name('upload');
 //Route::get('/home', 'HomeController@index')->name('home');
 //create for redirect to admin panel using middleware (we have changes in AdminMiddleware,kernel,LoginController files //here auth and admin indicate to folder)
 Route::group(['middleware'  => ['auth','admin']], function() {

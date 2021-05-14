@@ -7,7 +7,6 @@ use Input;
 use Redirect;
 use Session;
 use Mapper;
-
 class MapController extends Controller
 {
     /**
