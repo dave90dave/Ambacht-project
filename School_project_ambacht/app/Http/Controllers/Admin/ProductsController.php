@@ -22,13 +22,12 @@ class ProductsController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required',
-            'per_unit' => 'required',
-            'amount' => 'required',
-            'amount' => 'required',
-            'photo' => 'required',
-            'active' => 'required',
-            'description' => 'required'
+            'price' => 'numeric',
+            'per_unit' => 'numeric',
+            'amount' => 'numeric',
+            'photo' => '',
+            'active' => 'boolean',
+            'description' => ''
         ]);
         Product::create([
             'name' => $request->name,
