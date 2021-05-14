@@ -15,56 +15,60 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\ProductsController;
 
-Route::get('/market', function () {
-    return view('market');
-});
-
-Route::get('/product', function () {
-    return view('product');
-});
-
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-//Route::get('/home', 'HomeController@index')->name('home');
-//create for redirect to admin panel using middleware (we have changes in AdminMiddleware,kernel,LoginController files //here auth and admin indicate to folder)
+//admin panel
 Route::group(['middleware'  => ['auth','admin']], function() {
+
 	// you can use "/admin" instead of "/dashboard"
-	Route::get('/dashboard', function () {
-    	return view('admin.dashboard');
-	})->name('adminPanel');
-	// below is used for adding the users.
-	Route::get('/role-register','App\Http\Controllers\Admin\DashboardController@registered')->name('role-register');
-	//below route for edit the users detail and update.
-	Route::get('/role-edit/{id}','App\Http\Controllers\Admin\DashboardController@registeredit');
-	//update button route
-	Route::put('/role-register-update/{id}','App\Http\Controllers\Admin\DashboardController@registerupdate');
-	//delete route
-	Route::delete('/role-delete/{id}','App\Http\Controllers\Admin\DashboardController@registerdelete');
+    Route::get('/admin', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
 
-    Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
+    Route::redirect('/dashboard', '/admin', 301);
 
+    //USERS
 
-	Route::get('/products-create','App\Http\Controllers\Admin\ProductsController@Create');
-
-    Route::post('/products','App\Http\Controllers\Admin\ProductsController@show', 'store');
-	//below route for edit the products detail and update.
-	Route::get('/products-edit/{id}','App\Http\Controllers\Admin\ProductsController@registeredit');
-	//update button route
-	Route::put('/products-update/{id}','App\Http\Controllers\Admin\ProductsController@registerupdate');
-	//delete route
-	Route::delete('/products-delete/{id}','App\Http\Controllers\Admin\ProductsController@registerdelete');
+    //list
+	Route::get('/admin/users','App\Http\Controllers\Admin\DashboardController@list')->name('users');
+    //create
+	Route::get('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserView');
+    //create update
+	Route::post('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserPost');
+    //update
+	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserView');
+    //update store
+	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserPut');
+    //delete
+	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\DashboardController@deleteUser');
 
 
-    //Route::get('/admin.products', [ProductsController::class, 'show']);
+    //PRODUCTS
+
+    //list
+    Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@list');
+	//create
+    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductView');
+    //create store
+    Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductPost');
+	//update
+	Route::get('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductView');
+	//update store
+	Route::put('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductPut');
+	//delete
+	Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@deleteProduct');
+
 });
 
+
+//FRONT END
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard
-//Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])->name('markets');
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 Route::get('/profiles', [App\Http\Controllers\HomeController::class, 'profiles'])->name('profiles');
 Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+
+//LOGGED IN USERS
+//user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard
+//Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');

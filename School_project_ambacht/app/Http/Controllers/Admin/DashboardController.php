@@ -3,43 +3,88 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
-    public function registered()
+    public function list()
     {
 
     	$users = User::all();
 
-    	return view('admin.register')->with('users',$users);
+    	return view('admin.users.list')->with('users',$users);
 
     }
     // here we create fuction for edit users
-    public function registeredit(Request $request, $id)
+    public function updateUserView(Request $request, $id)
     {
     	$users = User::findOrFail($id);
-    	return view('admin.register-edit')->with('users',$users);
+    	return view('admin.users.edit')->with('users',$users);
     }
 
     // here we create function for update button
-    public function registerupdate(Request $request, $id)
+    public function updateUserPut(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email',
+            'public' => 'boolean',
+            'phoneNumber' => '',
+            'usertype' => '',
+            'password' => 'required|confirmed|min:8|max:255',
+        ]);
+
     	$users = User::find($id);
-    	$users->name = $request->input('username');
-    	$users->usertype = $request->input('usertype');
+    	$users->name = $request->name;
+    	$users->email = $request->email;
+    	$users->public = $request->public;
+    	$users->phoneNumber = $request->phoneNumber;
+    	$users->usertype = $request->usertype;
+        $users->password = Hash::make($request->password);
     	$users->update();
 
-    	return redirect('/role-register')->with('status','data is updated');
+    	return redirect('/admin/users')->with('status','User is updated');
     }
+
+public function createUserView()
+{
+    return view('admin.users.create');
+}
+
+    public function createUserPost(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required|max:30',
+            'email' => 'required|email|unique:users',
+            'public' => 'boolean',
+            'phoneNumber' => '',
+            'usertype' => '',
+            'password' => 'required|confirmed|min:8|max:255',
+        ]);
+
+    	User::create([
+    	'name' => $request->name,
+    	'email' => $request->email,
+    	'public' => $request->public,
+    	'phoneNumber' => $request->phoneNumber,
+    	'usertype' => $request->usertype,
+        'password' => Hash::make($request->password)
+        ]);
+
+    	return redirect('/admin/users')->with('status','User is created');
+    }
+
     //delete function
-    public function registerdelete($id)
+    public function deleteUser($id)
     {
         $users = User::findOrFail($id);
         $users->delete();
 
-        return redirect('/role-register')->with('status','data deleted');
+        return redirect('/admin/users')->with('status','User deleted');
 
     }
 }

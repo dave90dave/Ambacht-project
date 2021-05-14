@@ -11,6 +11,7 @@ class Product extends Model
 
     protected $table = 'products';
     protected $fillable = [
+        'category_id',
         'name',
         'price',
         'per_unit',
@@ -19,6 +20,12 @@ class Product extends Model
         'active',
         'description',
     ];
+
+    public function scopeUserProductsActive($idLoggedinUser)
+    {
+        $userProducts = Product::all()->where('user_id', $idLoggedinUser)->count();
+        return $userProducts;
+    }
 
     public function market(){
         return $this->belongsToMany(Market::class);
