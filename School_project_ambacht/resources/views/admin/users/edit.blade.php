@@ -26,27 +26,27 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-8"> <!--col-md-8 means 8 row  and form put into one row and updtate the button below-->
-							<form action="/role-register-update/{{ $users->id }}" method="POST" ><!-- here we update the button-->
+							<form action="/admin/user/edit/{{ $user->id }}" method="PUT" ><!-- here we update the button-->
 								{{ csrf_field() }}
 								{{ method_field('PUT') }}
 						<div class="form-group">
 				    		<label>Name</label>
-				    		<input type="text" name="name" value="{{ $users->name }}" class="form-control">
+				    		<input type="text" name="name" value="{{ $user->name }}" class="form-control">
 				     	</div>
 
                         <div class="form-group">
 				    		<label>email</label>
-				    		<input type="text" name="email" value="{{ $users->email }}" class="form-control">
+				    		<input type="text" name="email" value="{{ $user->email }}" class="form-control">
 				     	</div>
 
                          <div class="form-group">
 				    		<label>Public</label>
-                            <input type="checkbox" name="public" value="{{ $users->public }}" class="form-control">
+                            <input type="checkbox" name="public" value="{{ $user->public }}" class="form-control">
 				     	</div>
 
                          <div class="form-group">
 				    		<label>Phone number</label>
-				    		<input type="text" name="phoneNumber" value="{{ $users->phoneNumber }}" class="form-control">
+				    		<input type="text" name="phoneNumber" value="{{ $user->phoneNumber }}" class="form-control">
 				     	</div>
 
 				     	<div class="form-group">
@@ -68,7 +68,7 @@
 				    		<input type="password" name="password_confirmation" class="form-control">
 				     	</div>
 
-				     	<button type="Submit" class="btn btn-success">Submit</button>
+				     	<button type="submit" class="btn btn-success">Submit</button>
 				     	<a href="/admin/users" class="btn btn-danger">Cancel</a>
 					</form>
 						</div>
