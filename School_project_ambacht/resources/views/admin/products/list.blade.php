@@ -17,7 +17,7 @@
                 <div class="col-lg-12 margin-tb">
 
                     <div class="pull-right">
-                        <a class="btn btn-succes" > Create New Product</a>
+                        <a href="/admin/product/create" class="btn btn-success"> Create New Product</a>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                   <table id= "datatable" class="table">
                     <thead class=" text-primary">
                       <th>Id</th>
-                      <th>category_id</th>
+                      <th>category</th>
                       <th>name</th>
                       <th>price</th>
                       <th>per_unit</th>
@@ -42,8 +42,10 @@
                     @foreach($products as $product)
                        <tr>
                         <td>{{$product['id']}}</td>
-                        <td>{{$product['category_id']}}</td>
-                        <td>{{$product['name']}}</td>
+                        <td><a href="/category/{{$product['category_id']}}">
+                            {{-- Category::FindorFail($product['category_id'])->name --}}
+                        </td>
+                        <td><a href="/product/{{$product['id']}}">{{$product['name']}}</a></td>
                         <td>{{$product['price']}}</td>
                         <td>{{$product['per_unit']}}</td>
                         <td>{{$product['amount']}}</td>
