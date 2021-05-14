@@ -21,6 +21,7 @@ class ProductsController extends Controller
     public function createProductPost(Request $request)
     {
         $request->validate([
+            'category_id' => 'required',
             'name' => 'required',
             'price' => 'numeric',
             'per_unit' => 'numeric',
@@ -30,6 +31,7 @@ class ProductsController extends Controller
             'description' => ''
         ]);
         Product::create([
+            'category_id' => $request->category_id,
             'name' => $request->name,
             'price' => $request->price,
             'per_unit' => $request->per_unit,
