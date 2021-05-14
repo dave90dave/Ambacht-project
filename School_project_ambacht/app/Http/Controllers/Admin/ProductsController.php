@@ -8,17 +8,17 @@ use App\Models\Product;
 
 class ProductsController extends Controller
 {
-public function list()
-{
-    $data= Product::all();
-    return view('admin.products.list', ['products'=>$data]);
-}
-public function createUserView()
+    public function list()
+    {
+        $data= Product::all();
+        return view('admin.products.list', ['products'=>$data]);
+    }
+    public function createUserView()
     {
         return view('admin.products.create');
     }
 
-public function createUserPost(Request $request)
+    public function createUserPost(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -30,39 +30,59 @@ public function createUserPost(Request $request)
             'active' => 'required',
             'description' => 'required'
         ]);
+        Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'per_unit' => $request->per_unit,
+            'amount' => $request->amount,
+            'photo' => $request->photo,
+            'active' => $request->active,
+            'description' => $request->description,
+            ]);
 
+            return redirect('/admin/products')->with('status','data is created');
     }
 
 
-// here we create fuction for edit users
-public function updateProductView(Request $request, $id)
-{
-    $data = Product::findOrFail($id);
-    return view('admin.products.edit')->with('products',$data);
-}
+    // here we create fuction for edit users
+    public function updateProductView(Request $request, $id)
+    {
+        $data = Product::findOrFail($id);
+        return view('admin.products.edit')->with('products',$data);
+    }
 
-// here we create function for update button
-public function updateProductPut(Request $request, $id)
-{
-    $data = Product::find($id);
-    $data->name = $request->input('name');
-    $data->price = $request->input('price');
-    $data->per_unit = $request->input('per_unit');
-    $data->amount = $request->input('amount');
-    $data->photo = $request->input('photo');
-    $data->active = $request->input('active');
-    $data->description = $request->input('description');
-    $data->update();
+    // here we create function for update button
+    public function updateProductPut(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|max:30',
+            'price' => 'numeric',
+            'per_unit' => 'numeric',
+            'amount' => 'numeric',
+            'photo' => '',
+            'active' => 'boolean',
+            'description' => 'max:300',
+        ]);
 
-    return redirect('/admin/products')->with('status','data is updated');
-}
-//delete function
-public function deleteProduct($id)
-{
-    $data = Product::findOrFail($id);
-    $data->delete();
+        $data = Product::find($id);
+        $data->name = $request->name;
+        $data->price = $request->price;
+        $data->per_unit = $request->per_unit;
+        $data->amount = $request->amount;
+        $data->photo = $request->photo;
+        $data->active = $request->active;
+        $data->description = $request->description;
+        $data->update();
 
-    return redirect('/admin/products')->with('status','data deleted');
+        return redirect('/admin/products')->with('status','data is updated');
+    }
+    //delete function
+    public function deleteProduct($id)
+    {
+        $data = Product::findOrFail($id);
+        $data->delete();
 
-}
+        return redirect('/admin/products')->with('status','data deleted');
+
+    }
 }
