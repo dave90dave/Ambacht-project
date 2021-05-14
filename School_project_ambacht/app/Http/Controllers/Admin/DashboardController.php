@@ -67,12 +67,12 @@ public function createUserView()
         ]);
 
     	User::create([
-    	'name' => $request['name'],
-    	'email' => $request['email'],
-    	'public' => $request['public'],
-    	'phoneNumber' => $request['phoneNumber'],
-    	'usertype' => $request['usertype'],
-        'password' => Hash::make($request['password'])
+    	'name' => $request->name,
+    	'email' => $request->email,
+    	'public' => $request->public,
+    	'phoneNumber' => $request->phoneNumber,
+    	'usertype' => $request->usertype,
+        'password' => Hash::make($request->password)
         ]);
 
     	return redirect('/admin/users')->with('status','data is created');
