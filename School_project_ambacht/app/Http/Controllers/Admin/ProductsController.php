@@ -13,12 +13,12 @@ class ProductsController extends Controller
         $data= Product::all();
         return view('admin.products.list', ['products'=>$data]);
     }
-    public function createUserView()
+    public function createProductView()
     {
         return view('admin.products.create');
     }
 
-    public function createUserPost(Request $request)
+    public function createProductPost(Request $request)
     {
         $request->validate([
             'name' => 'required',
