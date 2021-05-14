@@ -66,7 +66,8 @@ Route::get('/markets', [App\Http\Controllers\MarketController::class, 'index'])-
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/profiles', [App\Http\Controllers\HomeController::class, 'profiles'])->name('profiles');
+Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
 //LOGGED IN USERS
 //user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard

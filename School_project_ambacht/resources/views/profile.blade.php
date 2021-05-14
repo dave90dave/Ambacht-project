@@ -3,30 +3,32 @@
 @section("content")
 <div class="container">
 
-@if ($profiles)
 
-<h2>Profielen</h2>
 
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        @foreach ($profiles as $profile)
-        <div class="col">
-            <div class="card h-100">
-            <img src="resources/img/test/profile.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{$profile->name}}</h5>
-                <p class="card-text">Heeft X markten, met in totaal X producten</p>
+    <h2>Profiel</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="/resources/img/test/profile.jpg" height="100px" width="100px" alt="..." style="border-radius: 100%;">
+                <h5>{{$name}}</h5>
+                <small class="text-muted">Gebruiker is actief sinds: {{$createdAt}}</small>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">{{$profile->created_at}}</small>
-            </div>
+            <div class="col">
+                <p>{{$workExperience}}</p>
+                <p>{{$smallBiography}}</p>
+                <p>{{$activeInRegions}}</p>
             </div>
         </div>
-        @endforeach
     </div>
-</div>
-@else
-Er zijn geen profielen...
-@endif
+    <hr>
+    <div class="container">
+        <div class="row">
+            <p>Hier komt een kaart, met daarop de locaties van de marktkraampjes.</p>
+            <p>Hier komen alle marktkraampjes van de gebruiker</p>
+            <p>Hier komen alle producten van de gebruiker</p>
+        </div>
+    </div>
+
 </div>
 @endsection

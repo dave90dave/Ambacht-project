@@ -26,10 +26,10 @@ class HomeController extends Controller
         return view('home', compact('products', 'markets', 'profiles', 'categories'));
     }
 
-    public function profile()
+    public function profiles()
     {
-        $profiles = User::all();
-        return view('profile', compact('profiles'));
+        $profiles = User::all()->where('public', '=', '1');
+        return view('profiles', compact('profiles'));
     }
 
     public function search(Request $request)
@@ -43,5 +43,26 @@ class HomeController extends Controller
         $products = Product::where('category_id', $category);
         dd($products);
         dd($keyword, $location, $category);
+    }
+
+    public function Profile(Request $request)
+    {
+        $selectedProfile = User::find($request->id)->get();
+        //dd($selectedprofile[0]->public);
+        if ($selectedProfile[0]->public == 0){
+            abort(403);
+        } else {
+            $name = $selectedProfile[0]->name;
+            $createdAt = $selectedProfile[0]->created_at;
+            $updatedAt = $selectedProfile[0]->updated_at;
+
+            $workExperience = "Hier komt de werkervaring van de gebruiker.";
+            $smallBiography = "Hier kan de gebruiker een klein biografie schrijven.";
+            $activeInRegions = "Hier komen de regio's waar de gebruiker actief is.";
+
+            return view("profile", compact("name", "workExperience", "smallBiography", "activeInRegions", "createdAt", "updatedAt"));
+        }
+
+
     }
 }
