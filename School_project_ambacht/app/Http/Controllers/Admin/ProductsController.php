@@ -41,7 +41,7 @@ class ProductsController extends Controller
             'description' => $request->description,
             ]);
 
-            return redirect('/admin/products')->with('status','data is created');
+            return redirect('/admin/products')->with('status','Product is created');
     }
 
 
@@ -75,7 +75,7 @@ class ProductsController extends Controller
         $data->description = $request->description;
         $data->update();
 
-        return redirect('/admin/products')->with('status','data is updated');
+        return redirect('/admin/products')->with('status','Product is updated');
     }
     //delete function
     public function deleteProduct($id)
@@ -83,7 +83,7 @@ class ProductsController extends Controller
         $data = Product::findOrFail($id);
         $data->delete();
 
-        return redirect('/admin/products')->with('status','data deleted');
+        return redirect('/admin/products')->with('status','Product deleted');
 
     }
 }

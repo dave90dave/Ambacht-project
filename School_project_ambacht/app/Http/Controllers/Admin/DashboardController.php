@@ -46,7 +46,7 @@ class DashboardController extends Controller
         $users->password = Hash::make($request->password);
     	$users->update();
 
-    	return redirect('/admin/users')->with('status','data is updated');
+    	return redirect('/admin/users')->with('status','User is updated');
     }
 
 public function createUserView()
@@ -75,7 +75,7 @@ public function createUserView()
         'password' => Hash::make($request->password)
         ]);
 
-    	return redirect('/admin/users')->with('status','data is created');
+    	return redirect('/admin/users')->with('status','User is created');
     }
 
     //delete function
@@ -84,7 +84,7 @@ public function createUserView()
         $users = User::findOrFail($id);
         $users->delete();
 
-        return redirect('/admin/users')->with('status','data deleted');
+        return redirect('/admin/users')->with('status','User deleted');
 
     }
 }
