@@ -17,7 +17,7 @@
                 <div class="col-lg-12 margin-tb">
 
                     <div class="pull-right">
-                        <a class="btn btn-succes" > Create New Product</a>
+                        <a href="/admin/product/create" class="btn btn-success"> Create New Product</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,9 @@
                     @foreach($products as $product)
                        <tr>
                         <td>{{$product['id']}}</td>
-                        <td><a href="/category/{{$product['category_id']}}">{{$product['category_id']}}</td>
+                        <td><a href="/category/{{$product['category_id']}}">
+                            {{-- Category::FindorFail($product['category_id'])->name --}}
+                        </td>
                         <td><a href="/product/{{$product['id']}}">{{$product['name']}}</a></td>
                         <td>{{$product['price']}}</td>
                         <td>{{$product['per_unit']}}</td>
