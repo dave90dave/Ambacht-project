@@ -46,7 +46,7 @@ Route::group(['middleware'  => ['auth','admin']], function() {
     //list
     Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@list');
 	//create
-    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createUserView');
+    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductView');
     //create store
     Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductPost');
 	//update
