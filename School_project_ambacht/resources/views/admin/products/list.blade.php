@@ -27,7 +27,7 @@
                   <table id= "datatable" class="table">
                     <thead class=" text-primary">
                       <th>Id</th>
-                      <th>category_id</th>
+                      <th>category</th>
                       <th>name</th>
                       <th>price</th>
                       <th>per_unit</th>
@@ -42,8 +42,8 @@
                     @foreach($products as $product)
                        <tr>
                         <td>{{$product['id']}}</td>
-                        <td>{{$product['category_id']}}</td>
-                        <td>{{$product['name']}}</td>
+                        <td><a href="/category/{{$product['category_id']}}">{{$product['category_id']}}</td>
+                        <td><a href="/product/{{$product['id']}}">{{$product['name']}}</a></td>
                         <td>{{$product['price']}}</td>
                         <td>{{$product['per_unit']}}</td>
                         <td>{{$product['amount']}}</td>

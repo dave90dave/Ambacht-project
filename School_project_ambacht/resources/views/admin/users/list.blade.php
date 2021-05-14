@@ -41,7 +41,7 @@
                       @foreach($users as $row)
                       <tr>
                         <td>{{ $row->id }}</td>
-                        <td>{{ $row->name }}</td>
+                        <td><a href="/profile/{{ $row->id }}">{{ $row->name }}</a></td>
                         <td>{{ $row->phone }}</td>
                         <td>{{ $row->email }}</td>
                         <td>{{ $row->usertype }}</td>
