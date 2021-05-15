@@ -46,17 +46,22 @@
         @foreach ($products as $product)
         <div class="col">
             <div class="card h-100">
-            <img src="resources/img/test/product.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{$product->name}}</h5>
-                <p class="card-text">{{$product->description}}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">{{$product->created_at}}</small>
-            </div>
+                <img src="resources/img/test/product.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$product->name}}</h5>
+                    <p class="card-text">{{$product->description}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{$product->created_at}}</small>
+                </div>
             </div>
         </div>
         @endforeach
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button">
+                <a href="/products">Laad meer producten...</a>
+            </button>
+        </div>
     </div>
 </div>
 @else
@@ -72,17 +77,22 @@ Er zijn geen producten...
         @foreach ($markets as $market)
         <div class="col">
             <div class="card h-100">
-            <img src="resources/img/test/market.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{$market->label}}</h5>
-                <p class="card-text">{{$market->description}}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">{{$market->created_at}}</small>
-            </div>
+                <img src="resources/img/test/market.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$market->label}}</h5>
+                    <p class="card-text">{{$market->description}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{$market->created_at}}</small>
+                </div>
             </div>
         </div>
         @endforeach
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button">
+                <a href="/markets">Laad meer markten...</a>
+            </button>
+        </div>
     </div>
 </div>
 @else
@@ -97,17 +107,22 @@ Er zijn geen markten...
         @foreach ($profiles as $profile)
         <div class="col">
             <div class="card h-100">
-            <img src="resources/img/test/profile.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{$profile->name}}</h5>
-                <p class="card-text">{{--$profile->description--}}</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">{{$profile->created_at}}</small>
-            </div>
+                <img src="resources/img/test/profile.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$profile->name}}</h5>
+                    <p class="card-text">{{--$profile->description--}}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{$profile->created_at}}</small>
+                </div>
             </div>
         </div>
         @endforeach
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="button">
+                <a href="/profiles">Laad meer profielen...</a>
+            </button>
+        </div>
     </div>
 </div>
 @else
