@@ -107,7 +107,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Table List</a>
+            <!--<a class="navbar-brand" href="#pablo">Table List</a>-->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -126,33 +126,39 @@
               </div>
             </form>
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <!--<li class="nav-item">
                 <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
                   </p>
                 </a>
-              </li>
+              </li>-->
 
               <!-- here we paste or write logout code -->
 
-<li class="nav-item dropdown">
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-         {{ Auth::user()->name }} <span class="caret"></span>
-         </a>
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <!--<span class="caret"></span>-->
+                </a>
 
- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-               </a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  @csrf
-    </form>
-  </div>
-</li>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('home') }}">
+                        <i class="bi bi-house-door-fill"></i>
+                        <p>Back to home</p>
+                    </a>
+                    <hr>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <p>{{ __('Logout') }}</p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
 
 
               <!--<li class="nav-item dropdown">
@@ -169,7 +175,7 @@
                 </div>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                <a class="nav-link" href="#account">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
@@ -195,18 +201,23 @@
           <nav>
             <ul>
               <li>
-                <a href="https://digitalcrm.com/">
-                  Digital-CRM
+                <a href="/">
+                  Ambacht
                 </a>
               </li>
               <li>
-                <a href="https://digitalcrm.com/about-us/">
+                <a href="/over-ons/">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="https://digitalcrm.com/category/crm-blog/">
+                <a href="/blog">
                   Blog
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/dave90dave/Ambacht-project/">
+                  Github
                 </a>
               </li>
             </ul>
@@ -215,9 +226,8 @@
             &copy;
             <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Designed by
-            <a href="https://digitalcrm.com/" target="_blank">CRM</a>. Coded by
-            <a href="https://digitalcrm.com/what-is-crm/" target="_blank">digital-CRM</a>.
+            </script>, Open-source software under
+            <a href="/licence" target="_blank">BSD 3-Clause License</a>
           </div>
         </div>
       </footer>

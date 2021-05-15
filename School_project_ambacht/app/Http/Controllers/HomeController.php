@@ -47,8 +47,7 @@ class HomeController extends Controller
 
     public function Profile(Request $request)
     {
-        $selectedProfile = User::find($request->id)->get();
-        //dd($selectedprofile[0]->public);
+        $selectedProfile = User::FindorFail($request->id)->get();
         if ($selectedProfile[0]->public == 0){
             abort(403);
         } else {

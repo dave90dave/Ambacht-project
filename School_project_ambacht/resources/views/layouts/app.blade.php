@@ -81,6 +81,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->usertype == 'admin')
                                     <a class="dropdown-item" href="{{ route('adminPanel') }}">Admin panel</a>
+                                    <hr>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

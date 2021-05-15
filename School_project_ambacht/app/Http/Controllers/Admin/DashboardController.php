@@ -20,8 +20,8 @@ class DashboardController extends Controller
     // here we create fuction for edit users
     public function updateUserView(Request $request, $id)
     {
-    	$users = User::findOrFail($id);
-    	return view('admin.users.edit')->with('users',$users);
+    	$user = User::findOrFail($id);
+    	return view('admin.users.edit')->with('user',$user);
     }
 
     // here we create function for update button
