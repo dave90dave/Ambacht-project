@@ -18,10 +18,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $markets = Market::all();
-        $profiles = User::all()->where('public', '=', '1');
-        $categories = Category::all();
+        $products = Product::select('*')->orderByDesc('created_at')->limit(4)->get();
+        $markets = Market::select('*')->orderByDesc('created_at')->limit(4)->get();
+        $profiles = User::select('*')->orderByDesc('created_at')->where('public', '=', '1')->limit(4)->get();
+        $categories = Category::select('*')->orderByDesc('created_at')->limit(4)->get();
 
         return view('home', compact('products', 'markets', 'profiles', 'categories'));
     }
@@ -47,13 +47,13 @@ class HomeController extends Controller
 
     public function Profile(Request $request)
     {
-        $selectedProfile = User::FindorFail($request->id)->get();
-        if ($selectedProfile[0]->public == 0){
+        $selectedProfile = User::FindorFail($request->id);
+        if ($selectedProfile->public == 0){
             abort(403);
         } else {
-            $name = $selectedProfile[0]->name;
-            $createdAt = $selectedProfile[0]->created_at;
-            $updatedAt = $selectedProfile[0]->updated_at;
+            $name = $selectedProfile->name;
+            $createdAt = $selectedProfile->created_at;
+            $updatedAt = $selectedProfile->updated_at;
 
             $workExperience = "Hier komt de werkervaring van de gebruiker.";
             $smallBiography = "Hier kan de gebruiker een klein biografie schrijven.";
