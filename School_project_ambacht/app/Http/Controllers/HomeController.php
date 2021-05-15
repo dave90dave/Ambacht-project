@@ -55,8 +55,14 @@ class HomeController extends Controller
             $createdAt = $selectedProfile->created_at;
             $updatedAt = $selectedProfile->updated_at;
 
-            $workExperience = "Hier komt de werkervaring van de gebruiker.";
-            $smallBiography = "Hier kan de gebruiker een klein biografie schrijven.";
+            $workExperience = $selectedProfile->workExperience;
+            $smallBiography = $selectedProfile->smallBiography;
+            $motivation = $selectedProfile->motivation;
+            $intrests = $selectedProfile->interests;
+            $website = $selectedProfile->website;
+            $hobbies = $selectedProfile->hobbies;
+
+
             $activeInRegions = "Hier komen de regio's waar de gebruiker actief is.";
 
             return view("profile", compact("name", "workExperience", "smallBiography", "activeInRegions", "createdAt", "updatedAt"));
