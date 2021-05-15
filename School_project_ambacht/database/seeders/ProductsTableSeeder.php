@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,17 +15,139 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
+        Product::create(
+            [
             'category_id' => '1',
             'name' => 'Bananen',
             'price' => '2',
-            'per_unit' => '1',
-            'amount' => '2',
-            'photo' => 'https://www.versgalerij.be/images/right/groenten-en-fruit-kopen-kalmthout.jpg',
+            'per_unit' => 'gram',
+            'amount' => '100',
+            'photo' => 'Foto',
             'active' => '1',
             'description' => 'Een tros bananen met een zachte en zoete smaak. Lekker om zo te eten als gezond tussendoortje.',
             'created_at' => now()
             //'updated_at' => now()
-        ]);
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '2',
+            'name' => 'Komkommer',
+            'price' => '1',
+            'per_unit' => 'stuks',
+            'amount' => '2',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Frisse komkommers, vers van het land.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '1',
+            'name' => 'Appels',
+            'price' => '3',
+            'per_unit' => 'stuks',
+            'amount' => '12',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Appels zijn altijd lekker, vers van de boom geplukt.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '1',
+            'name' => 'Bruin brood',
+            'price' => '2',
+            'per_unit' => '1',
+            'amount' => '2',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Iedere zaterdag vers uit de oven.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '1',
+            'name' => 'Rauwe melk',
+            'price' => '2',
+            'per_unit' => '1',
+            'amount' => '2',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Rechtstreeks van de koe, moet nog worden gekookt voor gebruik.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '6',
+            'name' => 'Honing',
+            'price' => '4',
+            'per_unit' => 'ML',
+            'amount' => '200',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Goed zoet, lekker op brood.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '6',
+            'name' => 'Ambachtelijke zeep',
+            'price' => '3',
+            'per_unit' => 'stuk',
+            'amount' => '1',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Keuze uit de geuren: Kiwi of banaan.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '6',
+            'name' => 'Pindakaas',
+            'price' => '3',
+            'per_unit' => 'Gram',
+            'amount' => '300',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Echte pindakaas, lekker op brood.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
+
+        Product::create(
+            [
+            'category_id' => '6',
+            'name' => 'Ambachtelijke parfum',
+            'price' => '7',
+            'per_unit' => 'ML',
+            'amount' => '150',
+            'photo' => 'Foto',
+            'active' => '1',
+            'description' => 'Heerlijke ambachtelijke parfums.',
+            'created_at' => now()
+            //'updated_at' => now()
+            ]
+        );
     }
 }
