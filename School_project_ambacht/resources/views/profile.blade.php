@@ -11,13 +11,13 @@
         <div class="row">
             <div class="col">
                 <img src="/resources/img/test/profile.jpg" height="100px" width="100px" alt="..." style="border-radius: 100%;">
-                <h5>{{$name}}</h5>
-                <small class="text-muted">Gebruiker is actief sinds: {{$createdAt}}</small>
+                <h5>{{$selectedProfile->name}}</h5>
+                <small class="text-muted">Gebruiker is actief sinds: {{$selectedProfile->createdAt}}</small>
             </div>
             <div class="col">
-                <p>{{$workExperience}}</p>
-                <p>{{$smallBiography}}</p>
-                <p>{{$activeInRegions}}</p>
+                <p>{{$selectedProfile->workExperience}}</p>
+                <p>{{$selectedProfile->smallBiography}}</p>
+                <p>{{$selectedProfile->activeInRegions}}</p>
             </div>
         </div>
     </div>

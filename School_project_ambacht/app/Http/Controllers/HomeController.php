@@ -51,21 +51,9 @@ class HomeController extends Controller
         if ($selectedProfile->public == 0){
             abort(403);
         } else {
-            $name = $selectedProfile->name;
-            $createdAt = $selectedProfile->created_at;
-            $updatedAt = $selectedProfile->updated_at;
-
-            $workExperience = $selectedProfile->workExperience;
-            $smallBiography = $selectedProfile->smallBiography;
-            $motivation = $selectedProfile->motivation;
-            $intrests = $selectedProfile->interests;
-            $website = $selectedProfile->website;
-            $hobbies = $selectedProfile->hobbies;
-
-
-            $activeInRegions = "Hier komen de regio's waar de gebruiker actief is.";
-
-            return view("profile", compact("name", "workExperience", "smallBiography", "activeInRegions", "createdAt", "updatedAt"));
+            $selectedProfile->activeInRegions = "Hier komen de regio's waar de gebruiker actief is.";
+            //dd($selectedProfile);
+            return view("profile", compact('selectedProfile'));
         }
 
 
