@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         $products = Product::all();
         $markets = Market::all();
-        $profiles = User::all();
+        $profiles = User::all()->where('public', '=', '1');
         $categories = Category::all();
 
         return view('home', compact('products', 'markets', 'profiles', 'categories'));
