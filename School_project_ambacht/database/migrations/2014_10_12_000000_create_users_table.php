@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            //$table->boolean('admin')->default(0);
             $table->boolean('public')->default(1);
             $table->string('phoneNumber')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -25,6 +24,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            //Hier komt de aanvullende informatie die op de profielpagina wordt getoond
+            $table->string('workExperience')->nullable(); //de werkervaring van de betreffende gebruiker
+            $table->string('smallBiography')->nullable(); //beschrijving over hoe de betreffende gebruiker is begonnen met zijn werk.
+            $table->string('motivation')->nullable(); //beschrijving over wat de betreffende gebruiker motiveert, om zijn werk te doen.
+            $table->string('interests')->nullable(); //beschrijving waarom gebruiker het vak hem zo intresseert.
+            $table->string('website')->nullable(); //website van gebruiker
+            $table->string('hobbies')->nullable(); //hobbies van gebruiker
         });
     }
 
