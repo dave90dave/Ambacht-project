@@ -39,12 +39,22 @@ class ReviewController extends Controller
         return redirect('/admin/review/markets')->with('status','Market is approved');
     }
 
-    public function marketRefuse(Request $request, $id)
+    public function marketRefuseView(Request $request, $id)
     {
+        $data = Market::findOrFail($id);
+        return view('admin.review.market.refuse')->with('markets',$data);
+    }
+
+    public function marketRefusePut(Request $request, $id)
+    {
+        $request->validate([
+            'review_refused_reason' => '',
+        ]);
+
         $users = Market::findorFail($id);
         $users->sent_for_review = false;
         $users->approved = false;
-        $users->review_refused_reason = 'Ingevulde reden van afwijzing...';
+        $users->review_refused_reason = $request->review_refused_reason;
         $users->update();
 
         return redirect('/admin/review/markets')->with('status','Market is refused');
@@ -62,12 +72,22 @@ class ReviewController extends Controller
         return redirect('/admin/review/products')->with('status','Product is approved');
     }
 
-    public function productRefuse(Request $request, $id)
+    public function productRefuseView(Request $request, $id)
     {
+        $data = Product::findOrFail($id);
+        return view('admin.review.product.refuse')->with('products',$data);
+    }
+
+    public function productRefusePut(Request $request, $id)
+    {
+        $request->validate([
+            'review_refused_reason' => '',
+        ]);
+
         $users = Product::findorFail($id);
         $users->sent_for_review = false;
         $users->approved = false;
-        $users->review_refused_reason = 'Ingevulde reden van afwijzing...';
+        $users->review_refused_reason = $request->review_refused_reason;
         $users->update();
 
         return redirect('/admin/review/products')->with('status','Product is refused');
