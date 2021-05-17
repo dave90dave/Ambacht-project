@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('Je bent ingelogd op het dashboard!') }}
+
+                    Jouw producten
+                    Jouw markten
                 </div>
             </div>
         </div>

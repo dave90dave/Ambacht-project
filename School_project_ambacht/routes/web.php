@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\ProductsController;
 
 Auth::routes();
 
@@ -93,4 +92,4 @@ Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profil
 
 //LOGGED IN USERS
 //user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard
-//Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/home', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
