@@ -80,15 +80,15 @@
           </li>
           <li class="{{ 'products' == request()->path() ? 'active' : ''}}">
             <a href="/admin/markets">
-              <i class="now-ui-icons design_bullet-list-67"></i>
+              <i class="now-ui-icons shopping_shop"></i>
               <p>Markets</p>
             </a>
           </li>
-          <!-- <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>-->
+          <li>
+            <a href="/admin/review">
+              <i class="now-ui-icons ui-1_check"></i>
+              <p>Review</p>
+            </a>
         </ul>
       </div>
     </div>
