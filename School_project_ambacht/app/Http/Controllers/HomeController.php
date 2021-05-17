@@ -51,9 +51,13 @@ class HomeController extends Controller
         if ($selectedProfile->public == 0){
             abort(403);
         } else {
+            $id = $request->id;
+            //dd($id);
+            $userMarkets = Market::AllActiveMarketsOfIndividualUser($id);
+            dd($userMarkets);
             $selectedProfile->activeInRegions = "Hier komen de regio's waar de gebruiker actief is.";
             //dd($selectedProfile);
-            return view("profile", compact('selectedProfile'));
+            return view("profile", compact('selectedProfile', 'userMarkets'));
         }
 
 

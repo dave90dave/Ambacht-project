@@ -23,6 +23,14 @@ class Market extends Model
         return $userMarkets;
     }
 
+    public function scopeAllActiveMarketsOfIndividualUser($id)
+    {
+        $markets = Market::all()->where('active', '=', '1')
+        ->where('approved', '=', '1')
+        ->where('user_id', '=', $id);
+        return $markets;
+    }
+
     public function products(){
         return $this->HasMany(Product::class);
     }
