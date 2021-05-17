@@ -57,11 +57,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="/admin/review/product/refuse/{{ $product->id }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('post') }}
-                                <button type="submit" class="btn btn-danger">Refuse</button>
-                            </form>
+                            <a href="/admin/review/product/refuse/{{ $product->id }}" class="btn btn-danger">Refuse</a>
                         </td>
                        </tr>
                        @endforeach

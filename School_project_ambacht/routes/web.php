@@ -66,7 +66,8 @@ Route::group(['middleware'  => ['auth','admin']], function() {
         //approve
         Route::post('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
         //refuse
-        Route::post('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuse');
+        Route::get('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuseView');
+        Route::put('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefusePut');
 
     //market
         //list
@@ -74,7 +75,8 @@ Route::group(['middleware'  => ['auth','admin']], function() {
         //approve
         Route::post('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
         //refuse
-        Route::post('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuse');
+        Route::get('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuseView');
+        Route::put('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefusePut');
 
 });
 
