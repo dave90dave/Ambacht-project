@@ -21,6 +21,9 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Alkmaarse Vismarkt',
             'location' => 'Alkmaar',
             'photo' => 'photo',
+            'sent_for_review' => '1',
+            'pending_review' => '1',
+            'active' => '1',
             'description' => 'een eventuele beschrijving indien dat nodig is',
             'created_at' => now(),
             'updated_at' => now()
@@ -33,6 +36,9 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Jan zijn boerenkraampje in Opmeer',
             'location' => 'Opmeer',
             'photo' => 'photo',
+            'sent_for_review' => '0',
+            'pending_review' => '0',
+            'active' => '1',
             'description' => 'Pure boerderijproducten, afkomstig van het boerenland.',
             'created_at' => now(),
             'updated_at' => now()
@@ -45,6 +51,9 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Jan zijn boerenkraampje in Nieuwe Niedorp',
             'location' => 'Nieuwe Niedorp',
             'photo' => 'photo',
+            'sent_for_review' => '1',
+            'pending_review' => null,
+            'active' => '1',
             'description' => 'Pure boerderijproducten, afkomstig van het boerenland, maar dan in Nieuwe Niedorp.',
             'created_at' => now(),
             'updated_at' => now()
@@ -57,6 +66,10 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Henkie zijn winkeltje',
             'location' => 'Heiloo',
             'photo' => 'photo',
+            'sent_for_review' => '1',
+            'pending_review' => '0',
+            'active' => '1',
+            'review_refused_reason' => 'De naam is niet toegestaan (voorbeeld)',
             'description' => 'Jaren ervaring op het gebied van ambacht.',
             'created_at' => now(),
             'updated_at' => now()
@@ -69,6 +82,9 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Klaas ambachtszaken',
             'location' => 'Nieuwe Niedorp',
             'photo' => 'photo',
+            'sent_for_review' => '1',
+            'pending_review' => '1',
+            'active' => '1',
             'description' => 'Pure ambacht, supergoede kwaliteit, kom vooral eens langs!',
             'created_at' => now(),
             'updated_at' => now()

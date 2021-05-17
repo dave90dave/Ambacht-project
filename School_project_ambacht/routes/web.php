@@ -56,6 +56,26 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 	//delete
 	Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@deleteProduct');
 
+    //REVIEW
+        //select page
+        Route::get('/admin/review/','App\Http\Controllers\Admin\ReviewController@select');
+
+    //product
+        //list
+        Route::get('/admin/review/products','App\Http\Controllers\Admin\ReviewController@productList');
+        //approve
+        Route::put('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
+        //refuse
+        Route::put('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuse');
+
+    //market
+        //list
+        Route::get('/admin/review/markets','App\Http\Controllers\Admin\ReviewController@marketList');
+        //approve
+        Route::put('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
+        //refuse
+        Route::put('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuse');
+
 });
 
 

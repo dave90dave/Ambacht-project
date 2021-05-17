@@ -21,7 +21,15 @@ class CreateProductsTable extends Migration
             $table->string('per_unit'); // KG/g/stuks
             $table->integer('amount'); // aantal van het product
             $table->string('photo');
-            $table->boolean('pending_review');
+            $table->boolean('sent_for_review');
+            //Of deze is ingezonden voor review
+            $table->boolean('pending_review')->nullable();
+            //Betekenis van pending_review veld:
+                //null = not yet reviewed (moet nog gekeurd worden door de admin)
+                //true = approved (wordt op de site geplaatst)
+                //false = refused (wordt teruggestuurd naar de gebruiker voor heroverweging)
+
+            $table->string('review_refused_reason')->nullable(); //Reden waarom hij is afgewezen
             $table->boolean('active');
             $table->string('description');
             $table->timestamps();

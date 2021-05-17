@@ -23,6 +23,8 @@ class ProductsTableSeeder extends Seeder
             'per_unit' => 'gram',
             'amount' => '100',
             'photo' => 'Foto',
+            'sent_for_review' => '1',
+            'pending_review' => '1',
             'active' => '1',
             'description' => 'Een tros bananen met een zachte en zoete smaak. Lekker om zo te eten als gezond tussendoortje.',
             'created_at' => now()
@@ -38,6 +40,8 @@ class ProductsTableSeeder extends Seeder
             'per_unit' => 'stuks',
             'amount' => '2',
             'photo' => 'Foto',
+            'sent_for_review' => '0',
+            'pending_review' => '0',
             'active' => '1',
             'description' => 'Frisse komkommers, vers van het land.',
             'created_at' => now()
@@ -53,6 +57,8 @@ class ProductsTableSeeder extends Seeder
             'per_unit' => 'stuks',
             'amount' => '12',
             'photo' => 'Foto',
+            'sent_for_review' => '1',
+            'pending_review' => null,
             'active' => '1',
             'description' => 'Appels zijn altijd lekker, vers van de boom geplukt.',
             'created_at' => now()
@@ -63,11 +69,14 @@ class ProductsTableSeeder extends Seeder
         Product::create(
             [
             'category_id' => '1',
-            'name' => 'Bruin brood',
+            'name' => 'Baksteen',
             'price' => '2',
             'per_unit' => '1',
             'amount' => '2',
             'photo' => 'Foto',
+            'sent_for_review' => '1',
+            'pending_review' => '0',
+            'review_refused_reason' => 'Product is geen consumeerbaar product (voorbeeld)',
             'active' => '1',
             'description' => 'Iedere zaterdag vers uit de oven.',
             'created_at' => now()
@@ -83,6 +92,8 @@ class ProductsTableSeeder extends Seeder
             'per_unit' => '1',
             'amount' => '2',
             'photo' => 'Foto',
+            'sent_for_review' => '1',
+            'pending_review' => '1',
             'active' => '1',
             'description' => 'Rechtstreeks van de koe, moet nog worden gekookt voor gebruik.',
             'created_at' => now()
