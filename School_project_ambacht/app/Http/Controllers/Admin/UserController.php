@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     public function list()
     {
