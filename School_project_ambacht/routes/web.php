@@ -21,24 +21,24 @@ Auth::routes();
 Route::group(['middleware'  => ['auth','admin']], function() {
 
 	// you can use "/admin" instead of "/dashboard"
-    Route::get('/admin', 'App\Http\Controllers\AdminDashboard@index')->name('adminPanel');
+    Route::get('/admin', 'App\Http\Controllers\Admin\DashboardController@index')->name('adminPanel');
 
     Route::redirect('/dashboard', '/admin', 301);
 
     //USERS
 
     //list
-	Route::get('/admin/users','App\Http\Controllers\Admin\DashboardController@list')->name('users');
+	Route::get('/admin/users','App\Http\Controllers\Admin\UserController@list')->name('users');
     //create
-	Route::get('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserView');
+	Route::get('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserView');
     //create update
-	Route::post('/admin/user/create','App\Http\Controllers\Admin\DashboardController@createUserPost');
+	Route::post('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserPost');
     //update
-	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserView');
+	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserView');
     //update store
-	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\DashboardController@updateUserPut');
+	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserPut');
     //delete
-	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\DashboardController@deleteUser');
+	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\UserController@deleteUser');
 
 
     //PRODUCTS

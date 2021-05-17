@@ -84,11 +84,11 @@
               <p>Markets</p>
             </a>
           </li>
-          <!-- <li>
-            <a href="./typography.html">
+          <li>
+            <a href="/admin/review">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>-->
+              <p>Pending review</p>
+            </a>
         </ul>
       </div>
     </div>

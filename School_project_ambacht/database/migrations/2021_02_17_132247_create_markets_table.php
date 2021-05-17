@@ -19,6 +19,7 @@ class CreateMarketsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->string('photo');
+            $table->boolean('pending_review');
             $table->string('description');
             $table->timestamps();
             // user_id, label, location, photo, description

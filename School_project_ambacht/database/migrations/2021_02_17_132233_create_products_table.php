@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('per_unit'); // KG/g/stuks
             $table->integer('amount'); // aantal van het product
             $table->string('photo');
+            $table->boolean('pending_review');
             $table->boolean('active');
             $table->string('description');
             $table->timestamps();
