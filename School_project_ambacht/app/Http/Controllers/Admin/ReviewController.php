@@ -16,31 +16,60 @@ class ReviewController extends Controller
 
     public function productList()
     {
-        $product = Product::all()->where('sent_for_review', '=', '1')->where('pending_review', '=', null)->where('active', '=', '1')->sortByDesc('updated_at');
+        $product = Product::all()->where('sent_for_review', '=', '1')->where('approved', '=', null)->where('active', '=', '1')->sortByDesc('updated_at');
 
         return view('admin.review.product.list', ['products'=>$product]);
     }
 
     public function marketList()
     {
-        $market = Market::all()->where('sent_for_review', '=', '1')->where('pending_review', '=', null)->where('active', '=', '1')->sortByDesc('updated_at');
+        $market = Market::all()->where('sent_for_review', '=', '1')->where('approved', '=', null)->where('active', '=', '1')->sortByDesc('updated_at');
 
         return view('admin.review.market.list', ['markets'=>$market]);
     }
 
-    public function approve(Request $request)
+    public function marketApprove(Request $request, $id)
     {
-        $id = $request->id;
-        $table = $request->table;
+        $users = Market::findorFail($id);
+        $users->sent_for_review = true;
+        $users->approved = true;
+        $users->review_refused_reason = null;
+        $users->update();
 
-        dd($id, $table);
+        return redirect('/admin/review/markets')->with('status','Market is approved');
     }
 
-    public function refuse(Request $request)
+    public function marketRefuse(Request $request, $id)
     {
-        $id = $request->id;
-        $table = $request->table;
+        $users = Market::findorFail($id);
+        $users->sent_for_review = false;
+        $users->approved = false;
+        $users->review_refused_reason = 'Ingevulde reden van afwijzing...';
+        $users->update();
 
-        dd($id, $table);
+        return redirect('/admin/review/markets')->with('status','Market is refused');
+
+    }
+
+    public function productApprove(Request $request, $id)
+    {
+        $users = Product::findorFail($id);
+        $users->sent_for_review = true;
+        $users->approved = true;
+        $users->review_refused_reason = null;
+        $users->update();
+
+        return redirect('/admin/review/products')->with('status','Product is approved');
+    }
+
+    public function productRefuse(Request $request, $id)
+    {
+        $users = Product::findorFail($id);
+        $users->sent_for_review = false;
+        $users->approved = false;
+        $users->review_refused_reason = 'Ingevulde reden van afwijzing...';
+        $users->update();
+
+        return redirect('/admin/review/products')->with('status','Product is refused');
     }
 }

@@ -11,6 +11,11 @@
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Review Products</h4>
+                @if (session('status'))
+                <div class="alert alert-info" role="alert">
+                    {{ session('status') }}
+                </div>
+    @endif
               </div>
 
               <div class="card-body">
@@ -45,10 +50,18 @@
                         <td>{{$product['description']}}</td>
 
                         <td>
-                          <a href="/admin/review/product/approve/{{ $product->id }}" class="btn btn-success">Approve</a>
+                            <form action="/admin/review/product/approve/{{ $product->id }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </form>
                         </td>
                         <td>
-                            <a href="/admin/review/product/refuse/{{ $product->id }}" class="btn btn-danger">Refuse</a>
+                            <form action="/admin/review/product/refuse/{{ $product->id }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('post') }}
+                                <button type="submit" class="btn btn-danger">Refuse</button>
+                            </form>
                         </td>
                        </tr>
                        @endforeach

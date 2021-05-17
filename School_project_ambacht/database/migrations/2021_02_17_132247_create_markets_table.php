@@ -21,8 +21,8 @@ class CreateMarketsTable extends Migration
             $table->string('photo');
             $table->boolean('sent_for_review');
             //Of deze is ingezonden voor review
-            $table->boolean('pending_review')->nullable();
-            //Betekenis van pending_review veld:
+            $table->boolean('approved')->nullable();
+            //Betekenis van approved veld:
                 //null = not yet reviewed (moet nog gekeurd worden door de admin)
                 //true = approved (wordt op de site geplaatst)
                 //false = refused (wordt teruggestuurd naar de gebruiker voor heroverweging)

@@ -64,17 +64,17 @@ Route::group(['middleware'  => ['auth','admin']], function() {
         //list
         Route::get('/admin/review/products','App\Http\Controllers\Admin\ReviewController@productList');
         //approve
-        Route::put('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
+        Route::post('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
         //refuse
-        Route::put('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuse');
+        Route::post('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuse');
 
     //market
         //list
         Route::get('/admin/review/markets','App\Http\Controllers\Admin\ReviewController@marketList');
         //approve
-        Route::put('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
+        Route::post('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
         //refuse
-        Route::put('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuse');
+        Route::post('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuse');
 
 });
 
