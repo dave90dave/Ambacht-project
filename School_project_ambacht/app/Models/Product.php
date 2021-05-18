@@ -27,6 +27,26 @@ class Product extends Model
         return $userProducts;
     }
 
+    public function scopeActive($query, $state)
+    {
+        return $query->where('active', '=', $state);
+    }
+
+    public function scopeApproved($query, $state)
+    {
+        return $query->where('approved', '=', $state);
+    }
+
+    public function scopeProductIsInMarket()
+    {
+        # code...
+    }
+
+    public function scopeProductIsFromUser()
+    {
+        # code...
+    }
+
     public function market(){
         return $this->belongsToMany(Market::class);
     }

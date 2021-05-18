@@ -16,19 +16,18 @@ class Market extends Model
         'description',
     ];
 
-
-    public function scopeUserMarketsActive($idLoggedinUser)
+    public function scopeActive($query, $state)
     {
-        $userMarkets = Market::all()->where('user_id', $idLoggedinUser)->count();
-        return $userMarkets;
+        return $query->where('active', '=', $state);
     }
 
-    public function scopeAllActiveMarketsOfIndividualUser($id)
+    public function scopeApproved($query, $state)
     {
-        $markets = Market::all()->where('active', '=', '1')
-        ->where('approved', '=', '1')
-        ->where('user_id', '=', $id);
-        return $markets;
+        return $query->where('approved', '=', $state);
+    }
+    public function scopeOfUser($query, $id)
+    {
+        return $query->where('user_id', '=', $id);
     }
 
     public function products(){

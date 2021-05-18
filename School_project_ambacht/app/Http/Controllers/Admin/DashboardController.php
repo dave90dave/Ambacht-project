@@ -14,11 +14,11 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $idLoggedinUser = Auth::user()->id;
+        $id = Auth::user()->id;
 
-        $marketsActive = Market::UserMarketsActive($idLoggedinUser);
-        $productsActive = Product::UserProductsActive($idLoggedinUser);
-        $profileStatus = User::find($idLoggedinUser)->public;
+        $marketsActive = Market::active(1)->approved(1)->ofUser($id)->count();
+        $productsActive = Product::UserProductsActive($id);
+        $profileStatus = User::find($id)->public;
 
         return view('admin.dashboard', compact("marketsActive", "productsActive", "profileStatus"));
     }
