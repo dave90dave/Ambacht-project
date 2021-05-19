@@ -52,7 +52,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'klaas@klaas.com',
             'password' => Hash::make('klaas'),
             'usertype' => 'user',
-            'public' => '1'
+            'public' => '1',
+            'website' => 'www.test.com'
             ]
         );
 

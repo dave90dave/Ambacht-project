@@ -30,8 +30,14 @@ class CreateUsersTable extends Migration
             $table->string('smallBiography')->nullable(); //beschrijving over hoe de betreffende gebruiker is begonnen met zijn werk.
             $table->string('motivation')->nullable(); //beschrijving over wat de betreffende gebruiker motiveert, om zijn werk te doen.
             $table->string('interests')->nullable(); //beschrijving waarom gebruiker het vak hem zo intresseert.
-            $table->string('website')->nullable(); //website van gebruiker
             $table->string('hobbies')->nullable(); //hobbies van gebruiker
+            $table->string('function')->nullable(); //Functietitel van gebruiker
+
+            //Profile social links
+            $table->string('website')->nullable(); //website van gebruiker
+            $table->string('twitter')->nullable(); //website van gebruiker
+            $table->string('instagram')->nullable(); //website van gebruiker
+            $table->string('facebook')->nullable(); //website van gebruiker
         });
     }
 
