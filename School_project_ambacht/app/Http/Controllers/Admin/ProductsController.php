@@ -20,7 +20,7 @@ class ProductsController extends Controller
 
     public function createProductPost(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'category_id' => 'required',
             'name' => 'required',
             'price' => 'numeric',
@@ -30,18 +30,9 @@ class ProductsController extends Controller
             'active' => 'boolean',
             'description' => ''
         ]);
-        Product::create([
-            'category_id' => $request->category_id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'per_unit' => $request->per_unit,
-            'amount' => $request->amount,
-            'photo' => $request->photo,
-            'active' => $request->active,
-            'description' => $request->description,
-            ]);
+        Product::create($data);
 
-            return redirect('/admin/products')->with('status','Product is created');
+        return redirect('/admin/products')->with('status','Product is created');
     }
 
 
