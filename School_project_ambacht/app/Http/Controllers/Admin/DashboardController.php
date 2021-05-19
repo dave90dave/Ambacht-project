@@ -14,12 +14,32 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $idLoggedinUser = Auth::user()->id;
+        $id = Auth::user()->id;
 
-        $marketsActive = Market::UserMarketsActive($idLoggedinUser);
-        $productsActive = Product::UserProductsActive($idLoggedinUser);
-        $profileStatus = User::find($idLoggedinUser)->public;
+        $marketsActive = Market::UserMarketsActive($id);
+        $productsActive = Product::UserProductsActive($id);
+        $profileStatus = User::find($id)->public;
 
         return view('admin.dashboard', compact("marketsActive", "productsActive", "profileStatus"));
+    }
+
+    public function togglePublic(Request $request)
+    {
+        $id = Auth::user()->id;
+        $user = User::findorFail($id);
+
+        if($user->public == false){
+            $user->public = true;
+            $user->update();
+            $state = "public.";
+        } else {
+            $user->public = false;
+            $user->update();
+            $state = "hidden.";
+        }
+
+
+
+        return redirect('/admin')->with('status','Your profile is now ' . $state);
     }
 }
