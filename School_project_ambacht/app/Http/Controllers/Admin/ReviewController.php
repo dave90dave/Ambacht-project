@@ -30,11 +30,11 @@ class ReviewController extends Controller
 
     public function marketApprove(Request $request, $id)
     {
-        $users = Market::findorFail($id);
-        $users->sent_for_review = true;
-        $users->approved = true;
-        $users->review_refused_reason = null;
-        $users->update();
+        $market = Market::findorFail($id);
+        $market->sent_for_review = true;
+        $market->approved = true;
+        $market->review_refused_reason = null;
+        $market->update();
 
         return redirect('/admin/review/markets')->with('status','Market is approved');
     }

@@ -12,6 +12,11 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title">Dashboard</h4>
+        @if (session('status'))
+                              <div class="alert alert-success" role="alert">
+                                  {{ session('status') }}
+                              </div>
+                  @endif
         </div>
     </div>
 </div>
@@ -38,10 +43,22 @@
           <h5 class="card-title">Jouw profiel:</h5>
               @if ($profileStatus == '1')
                 <p class="card-text">Openbaar</p>
-                <a href="">Maak verborgen</a>
+                <td>
+                    <form action="/admin/profile/togglepublic/" method="post">
+                      {{ csrf_field() }}
+                      {{ method_field('post') }}
+                      <button type="submit" class="btn btn-secondary">Maak verborgen</button>
+                    </form>
+                  </td>
               @elseif ($profileStatus == '0')
                 <p class="card-text">Verborgen</p>
-                <a href="">Maak openbaar</a>
+                <td>
+                    <form action="/admin/profile/togglepublic" method="post">
+                      {{ csrf_field() }}
+                      {{ method_field('post') }}
+                      <button type="submit" class="btn btn-primary">Maak openbaar</button>
+                    </form>
+                  </td>
               @endif
         </div>
       </div>
