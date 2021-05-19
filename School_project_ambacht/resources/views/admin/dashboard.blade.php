@@ -12,6 +12,11 @@
     <div class="card">
         <div class="card-header">
         <h4 class="card-title">Dashboard</h4>
+        @if (session('status'))
+                              <div class="alert alert-success" role="alert">
+                                  {{ session('status') }}
+                              </div>
+                  @endif
         </div>
     </div>
 </div>
@@ -42,7 +47,7 @@
                     <form action="/admin/profile/togglepublic/" method="post">
                       {{ csrf_field() }}
                       {{ method_field('post') }}
-                      <button type="submit" class="btn btn-primary">Maak verborgen</button>
+                      <button type="submit" class="btn btn-secondary">Maak verborgen</button>
                     </form>
                   </td>
               @elseif ($profileStatus == '0')
