@@ -42,6 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeAllMarketsOf($id)
+    {
+        $join = User::join('markets.user_id', 'users')->join('products.market_id', 'markets');
+        dd($join);
+    }
+
     public function market(){
         return $this->hasMany(Market::class);
     }
