@@ -19,7 +19,7 @@ class CreateMarketsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->string('photo');
-            $table->boolean('sent_for_review');
+            $table->boolean('sent_for_review')->nullable();
             //Of deze is ingezonden voor review
             $table->boolean('approved')->nullable();
             //Betekenis van approved veld:
