@@ -97,6 +97,7 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Jan zijn boerenkraampje in Nieuwe Niedorp',
             'location' => 'Nieuwe Niedorp',
             'photo' => 'photo',
+            'active' => '1',
             'description' => 'Pure boerderijproducten, afkomstig van het boerenland, maar dan in Nieuwe Niedorp.',
             'created_at' => now(),
             'updated_at' => now()
@@ -109,6 +110,7 @@ class MarketsTableSeeder extends Seeder
             'name' => 'De boerenwinkel van Piet',
             'location' => 'Obdam',
             'photo' => 'photo',
+            'active' => '1',
             'description' => 'Ontdek onze ambachtelijke likeuren, ter plaatse gemaakt.',
             'created_at' => now(),
             'updated_at' => now()
@@ -121,6 +123,7 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Ambachtelijke wijn van Brenda',
             'location' => 'Nieuwe Niedorp',
             'photo' => 'photo',
+            'active' => '0',
             'description' => 'Kom eens langs, en probeer onze wijnen.',
             'created_at' => now(),
             'updated_at' => now()
@@ -133,6 +136,7 @@ class MarketsTableSeeder extends Seeder
             'name' => 'Jacob',
             'location' => 'Heerhugowaard',
             'photo' => 'photo',
+            'active' => '1',
             'description' => 'Als je dacht dat het brood in de supermarkt lekker was, dan moet je vooral eens bij ons langskomen!',
             'created_at' => now(),
             'updated_at' => now()

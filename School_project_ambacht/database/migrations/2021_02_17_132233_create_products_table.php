@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('per_unit'); // KG/g/stuks
             $table->integer('amount'); // aantal van het product
             $table->string('photo');
-            $table->boolean('sent_for_review');
+            $table->boolean('sent_for_review')->nullable();
             //Of deze is ingezonden voor review
             $table->boolean('approved')->nullable();
             //Betekenis van approved veld:
