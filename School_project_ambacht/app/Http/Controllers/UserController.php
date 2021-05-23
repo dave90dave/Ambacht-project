@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -98,6 +98,12 @@ class UserController extends Controller
 
         // Return the search view with the results compacted
         return view('admin.searchuser', compact('users'));
+    }
+
+    public function profile()
+    {
+
+        return view('profile-info', array('user' => Auth::user()));
     }
 
 }

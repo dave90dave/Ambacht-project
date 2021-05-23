@@ -45,4 +45,28 @@ class HomeController extends Controller
         dd($products);
         dd($keyword, $location, $category);
     }
+
+    public function upload($request)
+    {
+
+        if($request->hasFile('image')){
+//            $filename = $request->image->getClientOriginalName();
+//            $request->image->storeAs('images',$filename,'public');
+//            Auth()->user()->update(['image'=>$filename]);
+
+            $image      = $request->file('image');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+
+            $img = Image::make($image->getRealPath());
+            $img->resize(120, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $img->stream(); // <-- Key point
+
+            //dd();
+            Storage::disk('local')->put('images/profile'.'/'.$fileName, $img, 'public');
+        }
+
+    }
 }

@@ -48,6 +48,8 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 
     Route::get('/searchuser/', 'App\Http\Controllers\UserController@searchuser')->name('searchuser');
 
+    Route::get('/profile-info', 'App\Http\Controllers\UserController@profile');
+
     Route::get('/map/', 'App\Http\Controllers\MapController@index')->name('map');
 
     Route::get('/products','App\Http\Controllers\Admin\ProductsController@show');
