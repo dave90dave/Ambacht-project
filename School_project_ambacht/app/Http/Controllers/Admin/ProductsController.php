@@ -20,7 +20,7 @@ class ProductsController extends Controller
 
     public function createProductPost(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'category_id' => 'required',
             'name' => 'required',
             'price' => 'numeric',
@@ -31,14 +31,14 @@ class ProductsController extends Controller
             'description' => ''
         ]);
         Product::create([
-            'category_id' => $request->category_id,
-            'name' => $request->name,
-            'price' => $request->price,
-            'per_unit' => $request->per_unit,
-            'amount' => $request->amount,
-            'photo' => $request->photo,
-            'active' => $request->active,
-            'description' => $request->description,
+            'category_id' => $validated['category_id'],
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+            'per_unit' => $validated['per_unit'],
+            'amount' => $validated['amount'],
+            'photo' => $validated['photo'],
+            'active' => $validated['active'],
+            'description' => $validated['description'],
             ]);
 
             return redirect('/admin/products')->with('status','Product is created');

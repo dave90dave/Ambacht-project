@@ -34,9 +34,14 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        $keyword = $request->input('keyword');
-        $location = $request->input('location');
-        $category = $request->input('category');
+        $validated = $request->validate([
+            'keyword' => 'required',
+            'location' => '',
+            'category' => '',
+        ]);
+        $keyword = $validated['keyword'];
+        $location = $validated['location'];
+        $category = $validated['category'];
 
         $products = Product::where('name' | 'description', $keyword);
         $products = Product::where('location', $location);

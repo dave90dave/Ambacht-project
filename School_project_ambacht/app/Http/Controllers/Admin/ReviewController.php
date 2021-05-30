@@ -47,14 +47,14 @@ class ReviewController extends Controller
 
     public function marketRefusePut(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'review_refused_reason' => '',
         ]);
 
         $users = Market::findorFail($id);
         $users->sent_for_review = false;
         $users->approved = false;
-        $users->review_refused_reason = $request->review_refused_reason;
+        $users->review_refused_reason = $validated['review_refused_reason'];
         $users->update();
 
         return redirect('/admin/review/markets')->with('status','Market is refused');
@@ -80,14 +80,14 @@ class ReviewController extends Controller
 
     public function productRefusePut(Request $request, $id)
     {
-        $request->validate([
+        $validated = $request->validate([
             'review_refused_reason' => '',
         ]);
 
         $users = Product::findorFail($id);
         $users->sent_for_review = false;
         $users->approved = false;
-        $users->review_refused_reason = $request->review_refused_reason;
+        $users->review_refused_reason = $validated['review_refused_reason'];
         $users->update();
 
         return redirect('/admin/review/products')->with('status','Product is refused');
