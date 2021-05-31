@@ -55,7 +55,7 @@
 				     	</div>
                          <div class="form-group">
 				    		<label>active</label>
-				    		<input type="text" name="active" class="form-control">
+				    		<input type="checkbox" name="active" class="form-control">
 				     	</div>
                          <div class="form-group">
 				    		<label>description</label>

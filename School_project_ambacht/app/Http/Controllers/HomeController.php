@@ -46,8 +46,7 @@ class HomeController extends Controller
         $products = Product::where('name' | 'description', $keyword);
         $products = Product::where('location', $location);
         $products = Product::where('category_id', $category);
-        dd($products);
-        dd($keyword, $location, $category);
+        dd($keyword, $location, $category, $products);
     }
 
     public function Profile(Request $request)

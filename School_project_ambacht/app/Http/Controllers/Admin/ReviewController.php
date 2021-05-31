@@ -51,11 +51,11 @@ class ReviewController extends Controller
             'review_refused_reason' => '',
         ]);
 
-        $users = Market::findorFail($id);
-        $users->sent_for_review = false;
-        $users->approved = false;
-        $users->review_refused_reason = $validated['review_refused_reason'];
-        $users->update();
+        $market = Market::findorFail($id);
+        $market->sent_for_review = false;
+        $market->approved = false;
+        $market->review_refused_reason = $validated['review_refused_reason'];
+        $market->update();
 
         return redirect('/admin/review/markets')->with('status','Market is refused');
 
@@ -63,11 +63,11 @@ class ReviewController extends Controller
 
     public function productApprove(Request $request, $id)
     {
-        $users = Product::findorFail($id);
-        $users->sent_for_review = true;
-        $users->approved = true;
-        $users->review_refused_reason = null;
-        $users->update();
+        $product = Product::findorFail($id);
+        $product->sent_for_review = true;
+        $product->approved = true;
+        $product->review_refused_reason = null;
+        $product->update();
 
         return redirect('/admin/review/products')->with('status','Product is approved');
     }
@@ -84,11 +84,11 @@ class ReviewController extends Controller
             'review_refused_reason' => '',
         ]);
 
-        $users = Product::findorFail($id);
-        $users->sent_for_review = false;
-        $users->approved = false;
-        $users->review_refused_reason = $validated['review_refused_reason'];
-        $users->update();
+        $product = Product::findorFail($id);
+        $product->sent_for_review = false;
+        $product->approved = false;
+        $product->review_refused_reason = $validated['review_refused_reason'];
+        $product->update();
 
         return redirect('/admin/review/products')->with('status','Product is refused');
     }

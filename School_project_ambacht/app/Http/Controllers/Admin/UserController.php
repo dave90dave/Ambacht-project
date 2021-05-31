@@ -31,7 +31,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:30',
             'email' => 'required|email',
-            'public' => 'boolean',
+            'public' => 'boolean|nullable',
             'phoneNumber' => '',
             'usertype' => '',
             'password' => 'required|confirmed|min:8|max:255',
