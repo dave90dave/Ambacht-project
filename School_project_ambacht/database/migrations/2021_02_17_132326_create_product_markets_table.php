@@ -14,8 +14,8 @@ class CreateProductMarketsTable extends Migration
     public function up()
     {
         Schema::create('product_markets', function (Blueprint $table) {
-            $table->unsignedInteger('product_id');
-            $table->unsignedInteger('market_id');
+            $table->unsignedInteger('product_id')->index();
+            $table->unsignedInteger('market_id')->index();
             $table->timestamps();
         });
     }
