@@ -41,7 +41,7 @@
 
                          <div class="form-group">
 				    		<label>Public</label>
-                            <input type="checkbox" name="public" value="{{ $user->public }}" class="form-control">
+                            <input type="checkbox" name="public" class="form-control">
 				     	</div>
 
                          <div class="form-group">
