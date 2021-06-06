@@ -29,56 +29,71 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 
     //USERS
 
-    //list
-	Route::get('/admin/users','App\Http\Controllers\Admin\UserController@list')->name('users');
-    //create
-	Route::get('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserView');
-    //create update
-	Route::post('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserPost');
-    //update
-	Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserView');
-    //update store
-	Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserPut');
-    //delete
-	Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\UserController@deleteUser');
+        //list
+        Route::get('/admin/users','App\Http\Controllers\Admin\UserController@list')->name('users');
+        //create
+        Route::get('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserView');
+        //create update
+        Route::post('/admin/user/create','App\Http\Controllers\Admin\UserController@createUserPost');
+        //update
+        Route::get('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserView');
+        //update store
+        Route::put('/admin/user/edit/{id}','App\Http\Controllers\Admin\UserController@updateUserPut');
+        //delete
+        Route::delete('/admin/user/delete/{id}','App\Http\Controllers\Admin\UserController@deleteUser');
 
 
     //PRODUCTS
 
-    //list
-    Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@list');
-	//create
-    Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductView');
-    //create store
-    Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductPost');
-	//update
-	Route::get('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductView');
-	//update store
-	Route::put('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductPut');
-	//delete
-	Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@deleteProduct');
+        //list
+        Route::get('/admin/products','App\Http\Controllers\Admin\ProductsController@list');
+        //create
+        Route::get('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductView');
+        //create store
+        Route::post('/admin/product/create','App\Http\Controllers\Admin\ProductsController@createProductPost');
+        //update
+        Route::get('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductView');
+        //update store
+        Route::put('/admin/product/edit/{id}','App\Http\Controllers\Admin\ProductsController@updateProductPut');
+        //delete
+        Route::delete('/admin/product/delete/{id}','App\Http\Controllers\Admin\ProductsController@deleteProduct');
+
+    //MARKETS
+
+        //list
+        Route::get('/admin/markets','App\Http\Controllers\Admin\MarketsController@list');
+        //create
+        Route::get('/admin/market/create','App\Http\Controllers\Admin\MarketsController@createMarketView');
+        //create store
+        Route::post('/admin/market/create','App\Http\Controllers\Admin\MarketsController@createMarketPost');
+        //update
+        Route::get('/admin/market/edit/{id}','App\Http\Controllers\Admin\MarketsController@updateMarketView');
+        //update store
+        Route::put('/admin/market/edit/{id}','App\Http\Controllers\Admin\MarketsController@updateMarketPut');
+        //delete
+        Route::delete('/admin/market/delete/{id}','App\Http\Controllers\Admin\MarketsController@deleteMarket');
 
     //REVIEW
         //select page
         Route::get('/admin/review/','App\Http\Controllers\Admin\ReviewController@select');
 
-    //product
-        //list
-        Route::get('/admin/review/products','App\Http\Controllers\Admin\ReviewController@productList');
-        //approve
-        Route::post('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
-        //refuse
-        Route::get('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuseView');
-        Route::put('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefusePut');
+        //product
+            //list
+            Route::get('/admin/review/products','App\Http\Controllers\Admin\ReviewController@productList');
+            //approve
+            Route::post('/admin/review/product/approve/{id}','App\Http\Controllers\Admin\ReviewController@productApprove');
+            //refuse
+            Route::get('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefuseView');
+            Route::put('/admin/review/product/refuse/{id}','App\Http\Controllers\Admin\ReviewController@productRefusePut');
 
-    //market
-        //list
-        Route::get('/admin/review/markets','App\Http\Controllers\Admin\ReviewController@marketList');
-        //approve
-        Route::post('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
-        //refuse
-        Route::get('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuseView');
-        Route::put('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefusePut');
+        //market
+            //list
+            Route::get('/admin/review/markets','App\Http\Controllers\Admin\ReviewController@marketList');
+            //approve
+            Route::post('/admin/review/market/approve/{id}','App\Http\Controllers\Admin\ReviewController@marketApprove');
+            //refuse
+            Route::get('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefuseView');
+            Route::put('/admin/review/market/refuse/{id}','App\Http\Controllers\Admin\ReviewController@marketRefusePut');
 
 });
 

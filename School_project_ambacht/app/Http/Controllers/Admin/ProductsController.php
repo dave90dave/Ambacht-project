@@ -37,7 +37,7 @@ class ProductsController extends Controller
     }
 
 
-    // here we create fuction for edit users
+    // here we create fuction to edit markets
     public function updateProductView(Request $request, $id)
     {
         $data = Product::findOrFail($id);
