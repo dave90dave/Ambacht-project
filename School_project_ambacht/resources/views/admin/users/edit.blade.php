@@ -26,7 +26,7 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-8"> <!--col-md-8 means 8 row  and form put into one row and updtate the button below-->
-							<form action="/admin/user/edit/{{ $user->id }}" method="PUT" ><!-- here we update the button-->
+							<form action="/admin/user/edit/{{ $user->id }}" method="POST" ><!-- here we update the button-->
 								{{ csrf_field() }}
 								{{ method_field('PUT') }}
 						<div class="form-group">
@@ -35,13 +35,13 @@
 				     	</div>
 
                         <div class="form-group">
-				    		<label>email</label>
+				    		<label>E-mail</label>
 				    		<input type="text" name="email" value="{{ $user->email }}" class="form-control">
 				     	</div>
 
                          <div class="form-group">
 				    		<label>Public</label>
-                            <input type="checkbox" name="public" value="{{ $user->public }}" class="form-control">
+                            <input type="text" name="public" value="{{ $user->public }}" class="form-control">
 				     	</div>
 
                          <div class="form-group">
@@ -54,6 +54,7 @@
 				    		<select name="usertype" class="form-control">
 				    			<option value="admin">Admin</option>
 				    			<option value="vendor">Vendor</option>
+				    			<option disabled>----------------------------</option>
 				    			<option value="">None</option>
 				    		</select>
 				     	</div>

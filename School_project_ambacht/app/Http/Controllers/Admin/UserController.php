@@ -28,22 +28,22 @@ class UserController extends Controller
     public function updateUserPut(Request $request, $id)
     {
 
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|max:30',
             'email' => 'required|email',
-            'public' => 'boolean',
+            'public' => '',
             'phoneNumber' => '',
             'usertype' => '',
             'password' => 'required|confirmed|min:8|max:255',
         ]);
 
     	$users = User::find($id);
-    	$users->name = $request->name;
-    	$users->email = $request->email;
-    	$users->public = $request->public;
-    	$users->phoneNumber = $request->phoneNumber;
-    	$users->usertype = $request->usertype;
-        $users->password = Hash::make($request->password);
+    	$users->name = $validated['name'];
+    	$users->email = $validated['email'];
+    	$users->public = $validated['public'];
+    	$users->phoneNumber = $validated['phoneNumber'];
+    	$users->usertype = $validated['usertype'];
+        $users->password = Hash::make($validated['password']);
     	$users->update();
 
     	return redirect('/admin/users')->with('status','User is updated');
@@ -57,7 +57,7 @@ public function createUserView()
     public function createUserPost(Request $request)
     {
 
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|max:30',
             'email' => 'required|email|unique:users',
             'public' => 'boolean',
@@ -67,12 +67,12 @@ public function createUserView()
         ]);
 
     	User::create([
-    	'name' => $request->name,
-    	'email' => $request->email,
-    	'public' => $request->public,
-    	'phoneNumber' => $request->phoneNumber,
-    	'usertype' => $request->usertype,
-        'password' => Hash::make($request->password)
+    	'name' => $validated['name'],
+    	'email' => $validated['email'],
+    	'public' => $validated['public'],
+    	'phoneNumber' => $validated['phoneNumber'],
+    	'usertype' => $validated['usertype'],
+        'password' => Hash::make($validated['password'])
         ]);
 
     	return redirect('/admin/users')->with('status','User is created');

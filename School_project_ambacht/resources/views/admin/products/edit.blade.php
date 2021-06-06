@@ -9,6 +9,15 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12"><!-- 12 row -->
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 			<div class="card">
 				<div class="card-header">
 					<h3>Edit Products</h3>
@@ -20,6 +29,11 @@
 							<form action="/admin/product/edit/{{ $products->id }}" method="POST" ><!-- here we update the button-->
 								{{ csrf_field() }}
 								{{ method_field('PUT') }}
+
+                        <div class="form-group">
+                            <label>category_id</label>
+                            <input type="text" name="category_id" value="{{ $products->category_id }}" class="form-control">
+                            </div>
                          <div class="form-group">
 				    		<label>name</label>
 				    		<input type="text" name="name" value="{{ $products->name }}" class="form-control">
