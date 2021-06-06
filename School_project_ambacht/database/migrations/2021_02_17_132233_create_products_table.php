@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('category_id')->index();
+            $table->unsignedBigInteger('category_id')->index();
             $table->string('name');
             $table->decimal('price'); //3 euro
             $table->string('per_unit'); // KG/g/stuks
