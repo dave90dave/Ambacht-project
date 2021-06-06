@@ -31,16 +31,7 @@ class ProductsController extends Controller
             'description' => ''
         ]);
 
-        Product::create([
-            'category_id' => $validated['category_id'],
-            'name' => $validated['name'],
-            'price' => $validated['price'],
-            'per_unit' => $validated['per_unit'],
-            'amount' => $validated['amount'],
-            'photo' => $validated['photo'],
-            'active' => $validated['active'],
-            'description' => $validated['description'],
-            ]);
+        Product::create($validated);
 
             return redirect('/admin/products')->with('status','Product is created');
     }
