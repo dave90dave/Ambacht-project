@@ -92,6 +92,9 @@ Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'inde
 Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 Route::get('/profiles', [App\Http\Controllers\HomeController::class, 'profiles'])->name('profiles');
 Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/news', [App\Http\Controllers\NewsController::class, 'allNews'])->name('allNews');
+Route::get('/news/{id}', [App\Http\Controllers\NewsController::class, 'news'])->name('news');
+
 
 //LOGGED IN USERS
 //user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard

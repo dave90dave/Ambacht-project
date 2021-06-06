@@ -56,6 +56,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('profiles') }}">{{ __('Profiles') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('allNews') }}">{{ __('News') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
