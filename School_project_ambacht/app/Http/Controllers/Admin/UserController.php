@@ -31,13 +31,11 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:30',
             'email' => 'required|email',
-            'public' => 'required_without_all',
+            'public' => '',
             'phoneNumber' => '',
             'usertype' => '',
             'password' => 'required|confirmed|min:8|max:255',
         ]);
-
-        dd($validated['public']);
 
     	$users = User::find($id);
     	$users->name = $validated['name'];

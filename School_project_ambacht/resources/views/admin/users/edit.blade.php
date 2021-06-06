@@ -41,7 +41,7 @@
 
                          <div class="form-group">
 				    		<label>Public</label>
-                            <input type="checkbox" name="public" class="form-control">
+                            <input type="text" name="public" value="{{ $user->public }}" class="form-control">
 				     	</div>
 
                          <div class="form-group">
@@ -54,6 +54,7 @@
 				    		<select name="usertype" class="form-control">
 				    			<option value="admin">Admin</option>
 				    			<option value="vendor">Vendor</option>
+				    			<option disabled>----------------------------</option>
 				    			<option value="">None</option>
 				    		</select>
 				     	</div>

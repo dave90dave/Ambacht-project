@@ -27,9 +27,10 @@ class ProductsController extends Controller
             'per_unit' => 'numeric',
             'amount' => 'numeric',
             'photo' => '',
-            'active' => 'boolean',
+            'active' => '',
             'description' => ''
         ]);
+
         Product::create([
             'category_id' => $validated['category_id'],
             'name' => $validated['name'],
@@ -55,24 +56,25 @@ class ProductsController extends Controller
     // here we create function for update button
     public function updateProductPut(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|max:30',
-            'price' => 'numeric',
-            'per_unit' => 'numeric',
-            'amount' => 'numeric',
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'name' => 'required',
+            'price' => '',
+            'per_unit' => '',
+            'amount' => '',
             'photo' => '',
             'active' => 'boolean',
             'description' => 'max:300',
         ]);
 
         $data = Product::find($id);
-        $data->name = $request->name;
-        $data->price = $request->price;
-        $data->per_unit = $request->per_unit;
-        $data->amount = $request->amount;
-        $data->photo = $request->photo;
-        $data->active = $request->active;
-        $data->description = $request->description;
+        $data->name = $validated['name'];
+        $data->price = $validated['price'];
+        $data->per_unit = $validated['per_unit'];
+        $data->amount = $validated['amount'];
+        $data->photo = $validated['photo'];
+        $data->active = $validated['active'];
+        $data->description = $validated['description'];
         $data->update();
 
         return redirect('/admin/products')->with('status','Product is updated');
