@@ -97,7 +97,7 @@ Er zijn geen markten...
         @foreach ($profiles as $profile)
         <div class="col">
             <div class="card h-100">
-            <img src="resources/img/test/profile.jpg" class="card-img-top" alt="...">
+            <img src="{{$profile->photo}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$profile->name}}</h5>
                 <p class="card-text">{{--$profile->description--}}</p>

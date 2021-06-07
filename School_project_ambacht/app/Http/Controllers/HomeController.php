@@ -48,31 +48,33 @@ class HomeController extends Controller
 
     public function uploadImage()
     {
-        return view('image');
+        return view('uploader.profile');
 
     }
 
     public function saveImage(Request $request)
     {
+        $id = "1";//userid;
 
-        $validatedData = $request->validate([
-         'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
+        $validated = $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
         ]);
 
-        $name = $request->file('image')->getClientOriginalName();
+        //dd($validated['image']);
 
-        $path = $request->file('image')->store('public/images');
+        $name = $validated['image']->getClientOriginalName();
 
+        $path = $validated['image']->store('public/images');
+        //dd($name, $path);
 
-        $data = new User;
+        $data = User::find($id);
+        //dd($path);
+        $data->photo = $path;
 
-        $data->name = $name;
-        //$save->path = $path;
+        $data->update();
 
-        $data->save();
-
-        return redirect('upload-image')->with('status', 'Image Has been uploaded');
+        return redirect('/')->with('status', 'Profile photo is updated');
 
     }
 }
