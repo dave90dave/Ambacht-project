@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
@@ -30,6 +31,10 @@ Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::post('/home','RegisterController@upload')->name('upload');
+
+Route::get('/image/upload', [HomeController::class, 'uploadImage']);
+Route::post('/image/save', [HomeController::class, 'saveImage']);
+
 //Route::get('/home', 'HomeController@index')->name('home');
 //create for redirect to admin panel using middleware (we have changes in AdminMiddleware,kernel,LoginController files //here auth and admin indicate to folder)
 Route::group(['middleware'  => ['auth','admin']], function() {

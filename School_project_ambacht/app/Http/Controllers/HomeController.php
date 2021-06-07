@@ -46,27 +46,33 @@ class HomeController extends Controller
         dd($keyword, $location, $category);
     }
 
-    public function upload($request)
+    public function uploadImage()
+    {
+        return view('image');
+
+    }
+
+    public function saveImage(Request $request)
     {
 
-        if($request->hasFile('image')){
-//            $filename = $request->image->getClientOriginalName();
-//            $request->image->storeAs('images',$filename,'public');
-//            Auth()->user()->update(['image'=>$filename]);
+        $validatedData = $request->validate([
+         'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
-            $image      = $request->file('image');
-            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+        ]);
 
-            $img = Image::make($image->getRealPath());
-            $img->resize(120, 120, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+        $name = $request->file('image')->getClientOriginalName();
 
-            $img->stream(); // <-- Key point
+        $path = $request->file('image')->store('public/images');
 
-            //dd();
-            Storage::disk('local')->put('images/profile'.'/'.$fileName, $img, 'public');
-        }
+
+        $data = new User;
+
+        $data->name = $name;
+        //$save->path = $path;
+
+        $data->save();
+
+        return redirect('upload-image')->with('status', 'Image Has been uploaded');
 
     }
 }
