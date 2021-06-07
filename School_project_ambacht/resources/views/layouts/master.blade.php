@@ -54,7 +54,7 @@
             </a>
           </li>end comments-->
           <li>
-            <a href="#">
+            <a href="/admin/maps">
               <i class="now-ui-icons location_map-big"></i>
               <p>Maps</p>
             </a>

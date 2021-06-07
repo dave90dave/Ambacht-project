@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Cornford\Googlmapper\Mapper as Mapper;
 
 class DashboardController extends Controller
 {
@@ -41,5 +42,12 @@ class DashboardController extends Controller
 
 
         return redirect('/admin')->with('status','Your profile is now ' . $state);
+    }
+
+    public function maps()
+    {
+        Mapper::map(53.434, 1.3423);
+
+		return view('admin.map');
     }
 }

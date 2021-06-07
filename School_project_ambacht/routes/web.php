@@ -27,6 +27,9 @@ Route::group(['middleware'  => ['auth','admin']], function() {
 
     Route::redirect('/dashboard', '/admin', 301);
 
+
+    Route::get('/admin/maps', 'App\Http\Controllers\Admin\DashboardController@maps')->name('adminMaps');
+
     //USERS
 
     //list
