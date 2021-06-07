@@ -59,7 +59,34 @@ class HomeController extends Controller
 
             return view("profile", compact('selectedProfile'));
         }
+    }
 
+    public function uploadImage()
+    {
+        return view('profilePhotoUpload');
 
     }
+
+    public function saveImage(Request $request)
+    {
+        $id = "1";//userid;
+
+
+        $validated = $request->validate([
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:10240',
+        ]);
+
+        $name = $request->file('image')->getClientOriginalName();
+
+        $path = $request->file('image')->store('public/images');
+
+        $data = User::find($id);
+        $data->photo = $path;
+
+        $data->update();
+
+        return redirect('/profile/photo')->with('status', 'Profile photo is updated');
+
+    }
+
 }

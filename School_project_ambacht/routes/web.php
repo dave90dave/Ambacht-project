@@ -17,6 +17,12 @@ use App\Http\Controllers\ProductsController;
 
 Auth::routes();
 
+
+//upload user profile photo
+Route::get('/profile/photo', 'App\Http\Controllers\HomeController@uploadImage');
+Route::post('/profile/photo', 'App\Http\Controllers\HomeController@saveImage');
+
+
 //admin panel
 Route::group(['middleware'  => ['auth','admin']], function() {
 
