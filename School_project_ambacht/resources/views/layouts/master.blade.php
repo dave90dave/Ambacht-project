@@ -226,8 +226,10 @@
             &copy;
             <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script>, Open-source software under
-            <a href="/licence" target="_blank">BSD 3-Clause License</a>
+            </script>, Software under
+            <a href="https://github.com/dave90dave/Ambacht-project/blob/main/LICENSE" target="_blank">
+                Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
+            </a>
           </div>
         </div>
       </footer>
