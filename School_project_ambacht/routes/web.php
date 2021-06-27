@@ -93,6 +93,10 @@ Route::get('/search', [App\Http\Controllers\HomeController::class, 'search'])->n
 Route::get('/profiles', [App\Http\Controllers\HomeController::class, 'profiles'])->name('profiles');
 Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
 
+Route::get('/profile','App\Http\Controllers\ProfileController@viewImage')->name('profileUploadFileView');
+Route::put('/profile','App\Http\Controllers\ProfileController@storeImage')->name('profileUploadFile');
+
+
 //LOGGED IN USERS
 //user dashboard uitgeschakeld, omdat deze conflicteerde met het admin dashboard
 //Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
