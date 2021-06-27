@@ -40,6 +40,7 @@
 						</div>
 					</div>
 
+                    <img src="{{ asset("/image" . Auth()->user()->id) }}" alt="">
 				</div>
 
 			</div>
